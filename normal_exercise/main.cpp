@@ -8,6 +8,7 @@
 #include <unordered_map>
 #include <algorithm>
 #include <queue>
+#include "solution.h"
 
 using namespace std;
 
@@ -686,18 +687,15 @@ vector<string> anagrams(vector<string> &strs) {
 int main()
 {
 	char stop;
-	string a="jjuuyyaba";
-	string b="ujujyaaby";
-	string c="abc";
-	vector<string> src;
+	int n = 4;
+	Solution solution;
+	vector<vector<int>> res = solution.generateMatrix(n);
 
-	src.push_back(a);
-	src.push_back(b);
-	src.push_back(c);
-
-	vector<string> dst = anagrams(src);
-	for(int i=0; i<dst.size(); i++)
-		cout<<dst[i]<<endl;
+	for(int i=0; i<n; i++) {
+		for(int j=0; j<n; j++)
+			cout<<res[i][j]<<'\t';
+		cout<<endl;
+	}
 
 	cin>>stop;
 	return 0;

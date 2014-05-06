@@ -22,3 +22,11 @@
 *.exe
 *.out
 *.app
+
+# Others
+Debug
+ipch
+.opensdf
+.sdf
+.sln
+.suo
