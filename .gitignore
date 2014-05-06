@@ -24,9 +24,9 @@
 *.app
 
 # Others
-Debug
-ipch
-.opensdf
-.sdf
-.sln
-.suo
+Debug/
+ipch/
+*.opensdf
+*.sdf
+*.sln
+*.suo
