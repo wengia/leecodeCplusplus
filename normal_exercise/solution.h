@@ -49,6 +49,26 @@ public:
 
         return res;
     }
+
+	//Add Binary
+	string addBinary(string a, string b) {
+        string res="";
+		int count=0;
+
+		for(int i=a.size()-1, j=b.size()-1; i>=0 || j>=0; i--, j--) {
+			int add1 = (i<a.size())? (a[i]-'0'):0;
+			int add2 = (j<b.size())? (b[j]-'0'):0;
+			int sum = add1 + add2 + count;
+			count = sum/2;
+
+			if(sum==0 || sum==2) res.push_back('0');
+			else res.push_back('1');
+		}
+
+		if(count==1) res.push_back('1');
+		reverse(res.begin(), res.end());
+		return res;
+    }
 };
 
 #endif

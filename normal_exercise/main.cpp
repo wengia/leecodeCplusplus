@@ -687,15 +687,10 @@ vector<string> anagrams(vector<string> &strs) {
 int main()
 {
 	char stop;
-	int n = 4;
 	Solution solution;
-	vector<vector<int>> res = solution.generateMatrix(n);
+	string a="1111", b="1";
 
-	for(int i=0; i<n; i++) {
-		for(int j=0; j<n; j++)
-			cout<<res[i][j]<<'\t';
-		cout<<endl;
-	}
+	cout<<solution.addBinary(a,b);
 
 	cin>>stop;
 	return 0;
