@@ -694,6 +694,7 @@ int main()
 
 	cout<<solution.maxProfit(src)<<endl;
 	cout<<solution.maxProfitII(src)<<endl;
+	cout<<solution.maxProfitIII(src)<<endl;
 
 	cin>>stop;
 	return 0;

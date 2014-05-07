@@ -163,6 +163,35 @@ public:
 		return res+tmp;
     }
 
+	// Best Time to Buy and Sell Stock III
+	int maxProfitIII(vector<int> &prices) {
+		int n = prices.size(), imin = 0, imax = n-1, res = 0;
+		if(n<2) return 0;
+
+		int *l2r = new int[n];
+		int *r2l = new int[n];
+		
+		l2r[imin] = 0;
+		for(int i=1; i<n; i++) {
+			if(prices[i]<prices[imin])
+				imin = i;
+			l2r[i] = max(l2r[i-1], prices[i]-prices[imin]);
+		}
+
+		r2l[imax] = 0;
+		for(int i=n-2; i>=0; i--) {
+			if(prices[i]>prices[imax])
+				imax = i;
+			r2l[i] = max(r2l[i+1], prices[imax]-prices[i]);
+		}
+
+		res = l2r[n-1];
+		for(int i=0; i<n-1; i++)
+			res = max(res, l2r[i]+r2l[i+1]);
+
+		return res;
+    }
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
