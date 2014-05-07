@@ -133,7 +133,34 @@ public:
 
 	// Best Time to Buy and Sell Stock
 	int maxProfit(vector<int> &prices) {
-        
+		int imin = 0, res = 0;
+
+		for(int i=0; i<prices.size(); i++) {
+			if(prices[i]<prices[imin])
+				imin = i;
+			res = max(res, prices[i]-prices[imin]);
+		}
+
+		return res;
+    }
+
+	// Best Time to Buy and Sell Stock II
+	int maxProfitII(vector<int> &prices) {
+		int imin = 0, tmp = 0, res = 0;
+
+		for(int i=0; i<prices.size(); i++) {
+			if(prices[i]<prices[imin])
+				imin = i;
+			if(tmp<prices[i]-prices[imin])
+				tmp = prices[i]-prices[imin];
+			else {
+				res+=tmp;
+				imin = i;
+				tmp = 0;
+			}
+		}
+
+		return res+tmp;
     }
 
 private:

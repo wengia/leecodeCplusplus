@@ -689,9 +689,11 @@ int main()
 	char stop;
 	Solution solution;
 	
-	solution.createTree();
-	cout<<solution.treeHeight()<<endl;
-	if(solution.isBalanced()) cout<<"yes"<<endl;
+	int i[] = {0,3,2,5,1,7};
+	vector<int> src(i, i+sizeof(i)/sizeof(int));
+
+	cout<<solution.maxProfit(src)<<endl;
+	cout<<solution.maxProfitII(src)<<endl;
 
 	cin>>stop;
 	return 0;
