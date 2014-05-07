@@ -688,9 +688,10 @@ int main()
 {
 	char stop;
 	Solution solution;
-	string a="1111", b="1";
-
-	cout<<solution.addBinary(a,b);
+	
+	solution.createTree();
+	cout<<solution.treeHeight()<<endl;
+	if(solution.isBalanced()) cout<<"yes"<<endl;
 
 	cin>>stop;
 	return 0;
