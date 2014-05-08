@@ -691,10 +691,17 @@ int main()
 	
 	solution.createTree();
 	vector<int> dst = solution.inorderTraversal();
+	vector<vector<int>> levelOrder = solution.levelOrder();
 
 	for(int i=0; i<dst.size(); i++)
 		cout<<dst[i]<<'\t';
+	cout<<endl;
 
+	for(int i=0; i<levelOrder.size(); i++) {
+		for(int j=0; j<levelOrder[i].size(); j++)
+			cout<<levelOrder[i][j]<<'\t';
+		cout<<endl;
+	}
 	cin>>stop;
 	return 0;
 }

@@ -224,6 +224,42 @@ public:
         return res;
     }
 
+	//Binary Tree Level Order Traversal 
+	vector<vector<int> > levelOrder() { return levelOrder(root); }
+	vector<vector<int> > levelOrder(TreeNode *root) {
+		struct Node{
+			TreeNode *tree;
+			int level;
+			Node(TreeNode *t, int l): tree(t), level(l) {}
+		};
+
+		vector<vector<int>> res;
+		vector<int> floor;
+		int level = 1;
+		queue<Node> que;
+
+		if(root==NULL) return res;
+		que.push(Node(root, 1));
+
+		while(!que.empty()) {
+			Node tmp = que.front(); que.pop();
+
+			if(tmp.level==level) floor.push_back(tmp.tree->val);
+			else {
+				level++;
+				res.push_back(floor);
+				floor.clear();
+				floor.push_back(tmp.tree->val);
+			}
+
+			if(tmp.tree->left!=NULL) que.push(Node(tmp.tree->left, tmp.level+1));
+			if(tmp.tree->right!=NULL) que.push(Node(tmp.tree->right, tmp.level+1));
+		}
+		res.push_back(floor);
+
+		return res;
+    }
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
