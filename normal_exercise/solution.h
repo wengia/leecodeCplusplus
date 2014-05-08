@@ -260,6 +260,25 @@ public:
 		return res;
     }
 
+	// Binary Tree Maximum Path Sum
+	int maxPathSum() {
+		int res = INT_MIN;
+		maxPathSum(root, res);
+
+		return res;
+	}
+	int maxPathSum(TreeNode *root, int &res) {
+        if(root==NULL) return 0;
+
+		int leftSum = maxPathSum(root->left, res);
+		int rightSum = maxPathSum(root->right, res);
+		int sum = max(root->val, root->val + max(leftSum, rightSum));
+		res = max(res, sum);
+		res = max(res, root->val + leftSum + rightSum);
+
+		return sum;
+    }
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {

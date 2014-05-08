@@ -702,6 +702,9 @@ int main()
 			cout<<levelOrder[i][j]<<'\t';
 		cout<<endl;
 	}
+
+	cout<<solution.maxPathSum();
+
 	cin>>stop;
 	return 0;
 }
