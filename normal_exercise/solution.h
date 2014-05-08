@@ -192,6 +192,38 @@ public:
 		return res;
     }
 
+	//Binary Tree Inorder Traversal
+	vector<int> inorderTraversal() { return inorderTraversal(root); }
+	vector<int> inorderTraversal(TreeNode *root) {
+		struct Count{
+			TreeNode *n;
+			int count;
+			Count(TreeNode *node, int c): n(node), count(c) {}
+		};
+
+        vector<int> res;
+        stack<Count> que;
+        
+        if(root==NULL) return res;
+        que.push(Count(root, 0));
+        
+		while(!que.empty()) {
+			Count tmp = que.top(); que.pop();
+
+			if(tmp.count==0) {
+				tmp.count=1;
+				que.push(tmp);
+				if(tmp.n->left!=NULL) que.push(Count(tmp.n->left, 0));
+			}
+			else {
+				res.push_back(tmp.n->val);
+				if(tmp.n->right!=NULL) que.push(Count(tmp.n->right, 0));
+			}
+		}
+        
+        return res;
+    }
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {

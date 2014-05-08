@@ -689,12 +689,11 @@ int main()
 	char stop;
 	Solution solution;
 	
-	int i[] = {0,3,2,5,1,7};
-	vector<int> src(i, i+sizeof(i)/sizeof(int));
+	solution.createTree();
+	vector<int> dst = solution.inorderTraversal();
 
-	cout<<solution.maxProfit(src)<<endl;
-	cout<<solution.maxProfitII(src)<<endl;
-	cout<<solution.maxProfitIII(src)<<endl;
+	for(int i=0; i<dst.size(); i++)
+		cout<<dst[i]<<'\t';
 
 	cin>>stop;
 	return 0;
