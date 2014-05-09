@@ -279,6 +279,28 @@ public:
 		return sum;
     }
 
+	//Binary Tree Zigzag Level Order Traversal
+	vector<vector<int> > zigzagLevelOrder() {
+        vector<vector<int>> res;
+		zigzagLevelOrder(root, 0, res);
+
+		for(int i=1; i<res.size(); i+=2)
+			reverse(res[i].begin(), res[i].end());
+
+		return res;
+    }
+	void zigzagLevelOrder(TreeNode *root, int level, vector<vector<int>> &res) {
+        if(root==NULL) return;
+
+		if(res.size()<=level)
+			res.push_back(vector<int>());
+		res[level].push_back(root->val);
+		
+		zigzagLevelOrder(root->left, level+1, res);
+		zigzagLevelOrder(root->right, level+1, res);
+    }
+
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {

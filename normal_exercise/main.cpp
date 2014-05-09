@@ -691,7 +691,7 @@ int main()
 	
 	solution.createTree();
 	vector<int> dst = solution.inorderTraversal();
-	vector<vector<int>> levelOrder = solution.levelOrder();
+	vector<vector<int>> levelOrder = solution.zigzagLevelOrder();
 
 	for(int i=0; i<dst.size(); i++)
 		cout<<dst[i]<<'\t';
@@ -702,8 +702,6 @@ int main()
 			cout<<levelOrder[i][j]<<'\t';
 		cout<<endl;
 	}
-
-	cout<<solution.maxPathSum();
 
 	cin>>stop;
 	return 0;

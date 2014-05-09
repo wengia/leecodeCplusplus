@@ -1,4 +1,4 @@
-﻿Build started 5/8/2014 2:40:18 PM.
+﻿Build started 5/8/2014 8:42:42 PM.
      1>Project "D:\programEx\normal_exercise\normal_exercise\normal_exercise.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\normal_exercise.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -9,6 +9,8 @@
      1>d:\programex\normal_exercise\normal_exercise\solution.h(121): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\solution.h(138): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\solution.h(151): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(287): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(295): warning C4018: '<=' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(34): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(35): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(54): warning C4018: '<' : signed/unsigned mismatch
@@ -57,4 +59,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.89
+Time Elapsed 00:00:01.64
