@@ -689,19 +689,10 @@ int main()
 	char stop;
 	Solution solution;
 	
-	solution.createTree();
-	vector<int> dst = solution.inorderTraversal();
-	vector<vector<int>> levelOrder = solution.zigzagLevelOrder();
+	int a[] = {5, 0, 1, 1, 2, 3, 2, 1, 0};
+	vector<int> src(a, a+sizeof(a)/sizeof(int));
 
-	for(int i=0; i<dst.size(); i++)
-		cout<<dst[i]<<'\t';
-	cout<<endl;
-
-	for(int i=0; i<levelOrder.size(); i++) {
-		for(int j=0; j<levelOrder[i].size(); j++)
-			cout<<levelOrder[i][j]<<'\t';
-		cout<<endl;
-	}
+	cout<<solution.candy(src)<<endl;
 
 	cin>>stop;
 	return 0;
