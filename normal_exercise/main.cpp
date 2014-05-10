@@ -689,10 +689,13 @@ int main()
 	char stop;
 	Solution solution;
 	
-	int a[] = {5, 0, 1, 1, 2, 3, 2, 1, 0};
-	vector<int> src(a, a+sizeof(a)/sizeof(int));
+	vector<vector<int>> combine = solution.combine(4, 2);
 
-	cout<<solution.candy(src)<<endl;
+	for(int i=0; i<combine.size(); i++) {
+		for(int j=0; j<combine[i].size(); j++)
+			cout<<combine[i][j]<<'\t';
+		cout<<endl;
+	}
 
 	cin>>stop;
 	return 0;

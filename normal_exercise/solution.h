@@ -320,6 +320,26 @@ public:
 		return res;
     }
 
+	// Combinations
+	vector<vector<int>> combine(int n, int k) {
+        vector<vector<int>> res;
+		combine(1, n, k, vector<int>(), res);
+		return res;
+    }
+
+	void combine(int start, int n, int k, vector<int> tmp, vector<vector<int>> &res) {
+		if(k==0) {
+			res.push_back(tmp);
+			return;
+		}
+
+		for(int i=start; i<=n; i++) {
+			tmp.push_back(i);
+			combine(i+1, n, k-1, tmp, res);
+			tmp.pop_back();
+		}
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
