@@ -441,24 +441,18 @@ public:
 		root = sortedArrayToBST(num);
 	}
 	TreeNode *sortedArrayToBST(vector<int> &num) {
-        TreeNode dummy(INT_MIN);
-		sortedArrayToBST(num, 0, num.size()-1, &dummy);
-
-		return dummy.right;
+        return sortedArrayToBST(num, 0, num.size()-1);
     }
 
-	void sortedArrayToBST(vector<int> &num, int first, int last, TreeNode *parent) {
-		if(first>last) return;
+	TreeNode *sortedArrayToBST(vector<int> &num, int first, int last) {
+		if(first>last) return NULL;
 		int mid = (first+last)/2;
 
 		TreeNode *child = new TreeNode(num[mid]);
-		if(num[mid]<parent->val)
-			parent->left = child;
-		else
-			parent->right = child;
+		child->left = sortedArrayToBST(num, first, mid-1);
+		child->right = sortedArrayToBST(num, mid+1, last);
 
-		sortedArrayToBST(num, first, mid-1, child);
-		sortedArrayToBST(num, mid+1, last, child);
+		return child;
 	}
 
 private:

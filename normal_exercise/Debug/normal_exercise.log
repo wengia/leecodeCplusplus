@@ -1,4 +1,4 @@
-﻿Build started 5/11/2014 4:23:28 PM.
+﻿Build started 5/11/2014 4:30:28 PM.
      1>Project "D:\programEx\normal_exercise\normal_exercise\normal_exercise.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\normal_exercise.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -59,4 +59,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.34
+Time Elapsed 00:00:01.27
