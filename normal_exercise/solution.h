@@ -366,7 +366,40 @@ public:
 		return newNode;
     }
 
-	//
+	// Construct Binary Tree from Inorder and Postorder Traversal
+	void createTree(vector<int> inorder, vector<int> postorder) {
+		root = buildTree(inorder, postorder);
+	}
+
+	TreeNode *buildTree(vector<int> &inorder, vector<int> &postorder) {
+		int n = inorder.size();
+		if(n==0) return NULL;
+		TreeNode *tree = new TreeNode(postorder[n-1]);
+		buildTree(inorder, postorder, 0, n-1, 0, n-1, tree);
+
+		return tree;
+    }
+
+	void buildTree(const vector<int> &inorder, const vector<int> &postorder, 
+		int in_start, int in_end, int post_start, int post_end, TreeNode *pre) {
+		if(in_start>=in_end || post_start>=post_end) return;
+		int in_pos;
+		for(in_pos=in_start; in_pos<in_end; in_pos++)
+			if(inorder[in_pos]==postorder[post_end]) break;
+		int post_pos = post_start + in_pos - in_start - 1;
+
+		// Add left child
+		if(in_pos!=in_start) {
+			pre->left = new TreeNode(postorder[post_pos]);
+			buildTree(inorder, postorder, in_start, in_pos-1, post_start, post_pos, pre->left);
+		}
+
+		// Add right child
+		if(in_pos!=in_end) {
+			pre->right = new TreeNode(postorder[post_end-1]);
+			buildTree(inorder, postorder, in_pos+1, in_end, post_pos+1, post_end-1, pre->right);
+		}
+	}
 
 private:
 	// Return the height of one branch

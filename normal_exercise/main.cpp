@@ -689,9 +689,18 @@ int main()
 	char stop;
 	Solution solution;
 	
-	string s = "aa";
+	int inorder[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+	int postorder[] = {1, 3, 5, 4, 2, 8, 9, 7, 6};
+	vector<int> in = vector<int> (inorder, inorder+sizeof(inorder)/sizeof(int));
+	vector<int> post = vector<int> (postorder, postorder+sizeof(postorder)/sizeof(int));
 
-	cout<<s<<endl;
+	solution.createTree(in, post);
+	vector<vector<int>> level = solution.levelOrder();
+	for(int i=0; i<level.size(); i++) {
+		for(int j=0; j<level[i].size(); j++)
+			cout<<level[i][j]<<'\t';
+		cout<<endl;
+	}
 
 	cin>>stop;
 	return 0;
