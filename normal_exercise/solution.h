@@ -340,6 +340,34 @@ public:
 		}
 	}
 
+	// Clone Graph
+	struct UndirectedGraphNode {
+		int label;
+		vector<UndirectedGraphNode *> neighbors;
+		UndirectedGraphNode(int x) : label(x) {};
+	};
+	UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {
+        unordered_map<UndirectedGraphNode *, UndirectedGraphNode *> mp;
+		
+		return cloneGraph(node, mp);
+    }
+    
+    UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node, unordered_map<UndirectedGraphNode *, UndirectedGraphNode *> &m ) {
+        if(!node) return NULL;
+		
+		auto it = m.find(node);
+		if(it!=m.end()) return it->second;
+
+		UndirectedGraphNode *newNode = new UndirectedGraphNode(node->label);
+		m[node] = newNode;
+		for(int i=0; i<node->neighbors.size(); i++)
+			newNode->neighbors.push_back(cloneGraph(node->neighbors[i], m ));
+        
+		return newNode;
+    }
+
+	//
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {

@@ -1,16 +1,16 @@
-﻿Build started 5/10/2014 1:46:11 PM.
+﻿Build started 5/10/2014 5:41:29 PM.
      1>Project "D:\programEx\normal_exercise\normal_exercise\normal_exercise.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\normal_exercise.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-     1>d:\programex\normal_exercise\normal_exercise\solution.h(120): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\solution.h(121): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\solution.h(138): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\solution.h(151): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\solution.h(287): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\solution.h(295): warning C4018: '<=' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(125): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(126): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(143): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(156): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(292): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(300): warning C4018: '<=' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(34): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(35): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(54): warning C4018: '<' : signed/unsigned mismatch
@@ -42,8 +42,7 @@
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(577): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(672): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(680): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(694): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(695): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(690): warning C4101: 'solution' : unreferenced local variable
        Link:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\programEx\normal_exercise\Debug\normal_exercise.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\normal_exercise.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\programEx\normal_exercise\Debug\normal_exercise.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\programEx\normal_exercise\Debug\normal_exercise.lib" /MACHINE:X86 Debug\main.obj
          LINK : D:\programEx\normal_exercise\Debug\normal_exercise.exe not found or not built by the last incremental link; performing full link
@@ -58,4 +57,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.22
+Time Elapsed 00:00:01.20

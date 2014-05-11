@@ -689,13 +689,9 @@ int main()
 	char stop;
 	Solution solution;
 	
-	vector<vector<int>> combine = solution.combine(4, 2);
+	string s = "aa";
 
-	for(int i=0; i<combine.size(); i++) {
-		for(int j=0; j<combine[i].size(); j++)
-			cout<<combine[i][j]<<'\t';
-		cout<<endl;
-	}
+	cout<<s<<endl;
 
 	cin>>stop;
 	return 0;
