@@ -401,6 +401,41 @@ public:
 		}
 	}
 
+	// Construct Binary Tree from Inorder and Preorder Traversal
+	void createTreePre(vector<int> preorder, vector<int> inorder) {
+		root = buildTreePre(preorder, inorder);
+	}
+	TreeNode *buildTreePre(vector<int> &preorder, vector<int> &inorder) {
+        int n = inorder.size();
+		if(n==0) return NULL;
+		TreeNode *tree = new TreeNode(preorder[0]);
+		buildTreePre(preorder, inorder, 0, n-1, 0, n-1, tree);
+
+		return tree;
+    }
+
+	void buildTreePre(vector<int> &preorder, vector<int> &inorder,
+		int in_start, int in_end, int pre_start, int pre_end, TreeNode *pre) {
+        if(in_start>=in_end || pre_start>=pre_end) return;
+
+		int in_pos;
+		for(in_pos=in_start; in_pos<in_end; in_pos++)
+			if(inorder[in_pos]==preorder[pre_start]) break;
+		int pre_pos = pre_end - (in_end - in_pos) + 1;
+
+		// Add right child
+		if(in_pos!=in_end) {
+			pre->right = new TreeNode(preorder[pre_pos]);
+			buildTreePre(preorder, inorder, in_pos+1, in_end, pre_pos, pre_end, pre->right);
+		}
+
+		// Add left child
+		if(in_pos!=in_start) {
+			pre->left = new TreeNode(preorder[pre_start+1]);
+			buildTreePre(preorder, inorder, in_start, in_pos-1, pre_start+1, pre_pos-1, pre->left);
+		}
+    }
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
