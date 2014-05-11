@@ -696,7 +696,7 @@ int main()
 	vector<int> in = vector<int> (inorder, inorder+sizeof(inorder)/sizeof(int));
 	vector<int> post = vector<int> (postorder, postorder+sizeof(postorder)/sizeof(int));
 
-	solution.createTreePre(pre, in);
+	solution.createBST(in);
 	vector<vector<int>> level = solution.levelOrder();
 	for(int i=0; i<level.size(); i++) {
 		for(int j=0; j<level[i].size(); j++)

@@ -436,6 +436,31 @@ public:
 		}
     }
 
+	//Convert Sorted Array to Binary Search Tree
+	void createBST(vector<int> &num) {
+		root = sortedArrayToBST(num);
+	}
+	TreeNode *sortedArrayToBST(vector<int> &num) {
+        TreeNode dummy(INT_MIN);
+		sortedArrayToBST(num, 0, num.size()-1, &dummy);
+
+		return dummy.right;
+    }
+
+	void sortedArrayToBST(vector<int> &num, int first, int last, TreeNode *parent) {
+		if(first>last) return;
+		int mid = (first+last)/2;
+
+		TreeNode *child = new TreeNode(num[mid]);
+		if(num[mid]<parent->val)
+			parent->left = child;
+		else
+			parent->right = child;
+
+		sortedArrayToBST(num, first, mid-1, child);
+		sortedArrayToBST(num, mid+1, last, child);
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
