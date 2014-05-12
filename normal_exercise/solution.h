@@ -455,6 +455,32 @@ public:
 		return child;
 	}
 
+	//
+	struct RandomListNode {
+		int label;
+		RandomListNode *next, *random;
+		RandomListNode(int x) : label(x), next(NULL), random(NULL) {}
+	};
+	RandomListNode *copyRandomList(RandomListNode *head) {
+		if(!head) return NULL;
+		unordered_map<RandomListNode*, RandomListNode*> m;
+        
+		RandomListNode dummy(0), *pre = &dummy, *tmp = head;
+		while(tmp) {
+			if(m.find(tmp)==m.end())
+				m[tmp] = new RandomListNode(tmp->label);
+			if(tmp->random && m.find(tmp->random)==m.end())
+				m[tmp->random] = new RandomListNode(tmp->random->label);
+			pre->next = m[tmp];
+			pre = pre->next;
+			if(tmp->random) pre->random = m[tmp->random];
+		
+			tmp = tmp->next;
+		}
+
+		return dummy.next;
+    }
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
