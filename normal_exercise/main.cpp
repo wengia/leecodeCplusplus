@@ -689,20 +689,10 @@ int main()
 	char stop;
 	Solution solution;
 	
-	int preorder[] = {6, 2, 1, 4, 3, 5, 7, 9, 8};
-	int inorder[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-	int postorder[] = {1, 3, 5, 4, 2, 8, 9, 7, 6};
-	vector<int> pre = vector<int> (preorder, preorder+sizeof(preorder)/sizeof(int));
-	vector<int> in = vector<int> (inorder, inorder+sizeof(inorder)/sizeof(int));
-	vector<int> post = vector<int> (postorder, postorder+sizeof(postorder)/sizeof(int));
-
-	solution.createBST(in);
-	vector<vector<int>> level = solution.levelOrder();
-	for(int i=0; i<level.size(); i++) {
-		for(int j=0; j<level[i].size(); j++)
-			cout<<level[i][j]<<'\t';
-		cout<<endl;
-	}
+	string s[] = {"3", "1", "-"};
+	vector<string> op(s, s+sizeof(s)/sizeof(string));
+	
+	cout<<solution.evalRPN(op)<<endl;
 
 	cin>>stop;
 	return 0;

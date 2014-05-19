@@ -455,7 +455,7 @@ public:
 		return child;
 	}
 
-	//
+	// Copy List with Random Pointer
 	struct RandomListNode {
 		int label;
 		RandomListNode *next, *random;
@@ -479,6 +479,105 @@ public:
 		}
 
 		return dummy.next;
+    }
+
+	// Distinct Subsequences
+	int numDistinct_Answer(string S, string T) {
+        int N = S.size(), M = T.size();
+        int **dp;
+		dp = new int*[M+1];
+		for(int i=0; i<=M; i++){
+			dp[i] = new int[N+1];
+			dp[i][0] = 0;
+		}
+        dp[0][0] = 1;
+        for (int j = 1; j <= N; ++j)
+            dp[0][j] = 1;
+        
+
+        for (int i = 1; i <= M; ++i)
+            for (int j = 1; j <= N; ++j)
+                if (S[j-1] == T[i-1])
+                    dp[i][j] = dp[i][j-1] + dp[i-1][j-1];
+                else
+                    dp[i][j] = dp[i][j-1];
+
+        return dp[M][N];
+    }
+
+	int numDistinct(string S, string T) {
+        int res = 0;
+		numDistinct(S, T, 0, 0, res);
+		return res;
+    }
+
+	void numDistinct(string S, string T, int start, int pos, int &res) {
+		for(int i=start; i<S.size() && S.size()-i>=T.size()-pos; i++) {
+			if(S[i]==T[pos]) {
+				if(pos==T.size()-1) {
+					res++;
+					break;
+				}
+				numDistinct(S, T, i+1, pos+1, res);
+			}
+
+		}
+	}
+
+	//Edit Distance
+	int minDistance(string word1, string word2) {
+		int m = word1.size(), n = word2.size();
+		int **dp;
+
+		dp = new int*[m+1];
+		for(int i=0; i<=m; i++) {
+			dp[i] = new int[n+1];
+			dp[i][0] = i;
+		}
+		for(int j=0; j<=n; j++)
+			dp[0][j]=j;
+
+		for(int i=1; i<=m; i++)
+			for(int j=1; j<=n; j++)
+				if(word1[i-1]==word2[j-1])
+					dp[i][j] = dp[i-1][j-1];
+				else
+					dp[i][j] = min(dp[i-1][j-1], min(dp[i-1][j], dp[i][j-1]))+1;
+
+		return dp[m][n];
+    }
+
+	// Evaluate Reverse Polish Notation
+	int evalRPN(vector<string> &tokens) {
+        stack<int> str;
+		int first, second;
+
+		for(int i=0; i<tokens.size(); i++) {
+			if(tokens[i].size()==1 && tokens[i]=="+") {
+				second = str.top(); str.pop();
+				first = str.top(); str.pop();
+				str.push(first + second);
+			}
+			else if(tokens[i].size()==1 && tokens[i]=="-") {
+				second = str.top(); str.pop();
+				first = str.top(); str.pop();
+				str.push(first - second);
+			}
+			else if(tokens[i].size()==1 && tokens[i]=="*") {
+				second = str.top(); str.pop();
+				first = str.top(); str.pop();
+				str.push(first * second);
+			}
+			else if(tokens[i].size()==1 && tokens[i]=="/") {
+				second = str.top(); str.pop();
+				first = str.top(); str.pop();
+				str.push(first / second);
+			}
+			else
+				str.push(atoi(tokens[i].c_str()));
+		}
+
+		return str.top();
     }
 
 private:
