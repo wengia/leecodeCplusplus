@@ -580,6 +580,22 @@ public:
 		return str.top();
     }
 
+	// Gas Station
+	int canCompleteCircuit(vector<int> &gas, vector<int> &cost) {
+		int total = gas.size();
+        int res = 0, theMin = gas[0]-cost[0], sum = theMin;
+
+		for(int i=1; i<total; i++) {
+			sum += gas[i]-cost[i];
+			if(sum<theMin) {
+				theMin = sum;
+				res = i;
+			}
+		}
+
+		return sum>=0? (res+1)%total:-1;
+    }
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {

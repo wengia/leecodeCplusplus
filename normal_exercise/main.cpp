@@ -689,10 +689,13 @@ int main()
 	char stop;
 	Solution solution;
 	
-	string s[] = {"3", "1", "-"};
-	vector<string> op(s, s+sizeof(s)/sizeof(string));
-	
-	cout<<solution.evalRPN(op)<<endl;
+	int gas[] = {1, 2, 3, 3};
+	int cost[] = {2, 1, 5, 1};
+
+	vector<int> g(gas, gas+sizeof(gas)/sizeof(int));
+	vector<int> c(cost, cost+sizeof(cost)/sizeof(int));
+
+	cout<<solution.canCompleteCircuit(g, c)<<endl;
 
 	cin>>stop;
 	return 0;

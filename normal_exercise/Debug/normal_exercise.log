@@ -1,7 +1,7 @@
-﻿Build started 5/19/2014 2:19:06 PM.
+﻿Build started 5/19/2014 4:38:48 PM.
      1>Project "D:\programEx\normal_exercise\normal_exercise\normal_exercise.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Creating "Debug\normal_exercise.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Touching "Debug\normal_exercise.unsuccessfulbuild".
        ClCompile:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
@@ -59,4 +59,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.69
+Time Elapsed 00:00:01.68
