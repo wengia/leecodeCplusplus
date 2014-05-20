@@ -626,6 +626,35 @@ public:
 		}
     }
 
+	// Insert Interval 
+	struct Interval {
+	   int start;
+	   int end;
+	   Interval() : start(0), end(0) {}
+	   Interval(int s, int e) : start(s), end(e) {}
+	};
+	vector<Interval> insert(vector<Interval> &intervals, Interval newInterval) {
+        bool insert = false;
+		vector<Interval> res;
+
+		for(auto it=intervals.begin(); it!=intervals.end(); it++) {
+			if(insert || it->end<newInterval.start) {
+				res.push_back(*it);
+			} else if(newInterval.end<it->start) {
+				res.push_back(newInterval);
+				res.push_back(*it);
+				insert = true;
+			} else {
+				newInterval.start = min(newInterval.start, it->start);
+				newInterval.end = max(newInterval.end, it->end);
+			}
+
+		}
+		if(!insert) res.push_back(newInterval);
+
+		return res;
+    }
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
