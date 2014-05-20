@@ -596,6 +596,14 @@ public:
 		return sum>=0? (res+1)%total:-1;
     }
 
+	// Grey Code
+	vector<int> grayCode(int n) {
+        vector<int> res(1<<n, 0);
+		for(int i=0; i<1<<n; i++)
+			res[i] = i ^ (i>>1);
+		return res;
+    }
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {

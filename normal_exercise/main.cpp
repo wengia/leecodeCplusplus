@@ -695,7 +695,9 @@ int main()
 	vector<int> g(gas, gas+sizeof(gas)/sizeof(int));
 	vector<int> c(cost, cost+sizeof(cost)/sizeof(int));
 
-	cout<<solution.canCompleteCircuit(g, c)<<endl;
+	vector<int> res = solution.grayCode(2);
+	for(int i=0; i<res.size(); i++)
+		cout<<res[i]<<endl;
 
 	cin>>stop;
 	return 0;
