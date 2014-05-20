@@ -603,6 +603,11 @@ public:
 			res[i] = i ^ (i>>1);
 		return res;
     }
+	int grayToBinary(int gray) {
+		for(int mask=gray>>1; mask>0; mask>>=1)
+			gray ^= mask;
+		return gray;
+	}
 
 private:
 	// Return the height of one branch

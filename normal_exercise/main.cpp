@@ -696,8 +696,16 @@ int main()
 	vector<int> c(cost, cost+sizeof(cost)/sizeof(int));
 
 	vector<int> res = solution.grayCode(2);
-	for(int i=0; i<res.size(); i++)
-		cout<<res[i]<<endl;
+	for(int i=0; i<res.size(); i++) {
+		cout<<res[i]<<'\t';
+		cout<<"gTb "<<solution.grayToBinary(res[i])<<endl;
+	}
+
+	vector<int> back(1<<2, 0);
+	for(int i=0; i<1<<2; i++) {
+		back[i] = res[i]^(i>>1);
+		cout<<back[i]<<endl;
+	}
 
 	cin>>stop;
 	return 0;
