@@ -609,6 +609,23 @@ public:
 		return gray;
 	}
 
+	// Implement strStr()
+	char *strStr(char *haystack, char *needle) {
+        while(true) {
+			char *tmp_h = haystack;
+			char *tmp_n = needle;
+
+			while(*tmp_n!='\0' && *tmp_h==*tmp_n) {
+			    tmp_h++;
+			    tmp_n++;
+			}
+
+			if(*tmp_n=='\0' ) return haystack;
+			if(*tmp_h=='\0' ) return NULL;
+			haystack++;
+		}
+    }
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {

@@ -695,18 +695,11 @@ int main()
 	vector<int> g(gas, gas+sizeof(gas)/sizeof(int));
 	vector<int> c(cost, cost+sizeof(cost)/sizeof(int));
 
-	vector<int> res = solution.grayCode(2);
-	for(int i=0; i<res.size(); i++) {
-		cout<<res[i]<<'\t';
-		cout<<"gTb "<<solution.grayToBinary(res[i])<<endl;
-	}
+	char *hay = "moment";
+	char *needle = "me";
 
-	vector<int> back(1<<2, 0);
-	for(int i=0; i<1<<2; i++) {
-		back[i] = res[i]^(i>>1);
-		cout<<back[i]<<endl;
-	}
-
+	cout<<solution.strStr(hay, needle)<<endl;
+	
 	cin>>stop;
 	return 0;
 }
