@@ -695,10 +695,11 @@ int main()
 	vector<int> g(gas, gas+sizeof(gas)/sizeof(int));
 	vector<int> c(cost, cost+sizeof(cost)/sizeof(int));
 
-	char *hay = "moment";
-	char *needle = "me";
+	char *hay = "aa";
+	char *needle = "ab";
+	char *s3 = "aaba";
 
-	cout<<solution.strStr(hay, needle)<<endl;
+	cout<<solution.isInterleave(hay, needle, s3)<<endl;
 	
 	cin>>stop;
 	return 0;
