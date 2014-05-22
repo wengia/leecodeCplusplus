@@ -699,6 +699,22 @@ public:
 		return res;
 	}
 
+	// Length of Last Word
+	int lengthOfLastWord(const char *s) {
+		int count = 0, last = 0;
+
+		while (*s != '\0') {
+			if (*(s++) == ' ') {
+				if (count != 0) last = count;
+				count = 0;
+			}
+			else
+				count++;
+		}
+
+		return count == 0 ? last : count;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
