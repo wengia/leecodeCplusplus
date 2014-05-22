@@ -526,7 +526,7 @@ public:
 
 	//Edit Distance
 	int minDistance(string word1, string word2) {
-		int m = word1.size(), n = word2.size();
+		const int m = word1.size(), n = word2.size();
 		int **dp;
 
 		dp = new int*[m+1];
@@ -679,6 +679,25 @@ public:
 
 		return dp[size1][size2];
     }
+
+	// Largest Rectangle in Histogram
+	int largestRectangleArea(vector<int> &height) {
+		height.push_back(0);
+		stack<int> st;
+		int res = 0, i = 0, n = height.size();
+
+		while (i < n) {
+			if (st.empty() || height[i] >= height[st.top()])
+				st.push(i++);
+			else {
+				int idx = st.top(); st.pop();
+				int width = st.empty() ? i : i - st.top() - 1;
+				res = max(res, width * height[idx]);
+			}
+		}
+
+		return res;
+	}
 
 private:
 	// Return the height of one branch
