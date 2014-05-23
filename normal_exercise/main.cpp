@@ -696,10 +696,10 @@ int main()
 	vector<int> c(cost, cost+sizeof(cost)/sizeof(int));
 
 	char *hay = "aa";
-	char *needle = "ab";
+	char *needle = "wlrbbmqbhcdarzowkkyhiddqscdxrjmowfrxsjybldbefsarcbynecdyggxxpklorellnmpapqfwkhopkmco";
 	char *s3 = "aaba";
 
-	cout << solution.longestConsecutive(g) << endl;
+	cout << solution.lengthOfLongestSubstring(needle) << endl;
 	
 	cin>>stop;
 	return 0;

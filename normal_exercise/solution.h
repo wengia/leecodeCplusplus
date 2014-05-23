@@ -736,6 +736,28 @@ public:
 		return res;
 	}
 
+	// Longest Substring Without Repeating Characters
+	int lengthOfLongestSubstring(string s) {
+		int res = 0, size = s.size(), start = 0, end = 0;
+		bool exist[256] = {false};
+
+		while (end<size && start+res<size) {
+			if (!exist[s[end]])
+				exist[s[end++]] = true;
+			else
+				exist[s[start++]] = false;
+
+			res = max(res, end - start);
+		}
+
+		return res;
+	}
+
+	// Maximal Rectangle
+	int maximalRectangle(vector<vector<char> > &matrix) {
+
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
