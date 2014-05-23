@@ -689,7 +689,7 @@ int main()
 	char stop;
 	Solution solution;
 	
-	int gas[] = {1, 2, 3, 3};
+	int gas[] = {1, 2, 3, 5};
 	int cost[] = {2, 1, 5, 1};
 
 	vector<int> g(gas, gas+sizeof(gas)/sizeof(int));
@@ -699,7 +699,7 @@ int main()
 	char *needle = "ab";
 	char *s3 = "aaba";
 
-	cout << solution.largestRectangleArea(g) << endl;
+	cout << solution.longestConsecutive(g) << endl;
 	
 	cin>>stop;
 	return 0;

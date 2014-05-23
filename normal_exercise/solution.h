@@ -7,6 +7,7 @@
 #include <vector>
 #include <stack>
 #include <unordered_map>
+#include <unordered_set>
 #include <algorithm>
 #include <queue>
 
@@ -713,6 +714,26 @@ public:
 		}
 
 		return count == 0 ? last : count;
+	}
+
+	// Longest Consecutive Sequence
+	int longestConsecutive(vector<int> &num) {
+		int res = 0, n = num.size();
+		unordered_set<int> elements;
+
+		for (int i = 0; i < n; i++)
+			elements.insert(num[i]);
+		for (int i = 0; i < n && !elements.empty(); i++) {
+			int up = num[i], down = num[i];
+			while (elements.find(up+1) != elements.end())
+				elements.erase(++up);
+			while (elements.find(down-1) != elements.end())
+				elements.erase(--down);
+
+			res = max(res, up-down+1);
+		}
+
+		return res;
 	}
 
 private:
