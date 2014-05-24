@@ -699,8 +699,10 @@ int main()
 	char *needle = "wlrbbmqbhcdarzowkkyhiddqscdxrjmowfrxsjybldbefsarcbynecdyggxxpklorellnmpapqfwkhopkmco";
 	char *s3 = "aaba";
 
-	cout << solution.lengthOfLongestSubstring(needle) << endl;
+	vector<vector<char>> rec;
 	
+	cout << solution.maximalRectangle(rec) << endl;
+
 	cin>>stop;
 	return 0;
 }

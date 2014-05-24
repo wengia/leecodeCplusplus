@@ -682,8 +682,8 @@ public:
     }
 
 	// Largest Rectangle in Histogram
-	int largestRectangleArea(vector<int> &height) {
-		height.push_back(0);
+	int largestRectangleArea(const vector<int> &height) {
+		//height.push_back(0);
 		stack<int> st;
 		int res = 0, i = 0, n = height.size();
 
@@ -753,9 +753,21 @@ public:
 		return res;
 	}
 
-	// Maximal Rectangle
+	// Maximal Rectangle, need to learn dp in this question
 	int maximalRectangle(vector<vector<char> > &matrix) {
+		if (matrix.size() == 0 || matrix[0].size() == 0) return 0;
+		int m = matrix.size(), n = matrix[0].size();
+		vector<int> height(n + 1, 0);
+		int res = 0;
 
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++)
+				height[j] = (matrix[i][j] == '0') ? 0 : height[j] + 1;
+			int tmp = largestRectangleArea(height);
+			res = max(res, tmp);
+		}
+		
+		return res;
 	}
 
 private:
