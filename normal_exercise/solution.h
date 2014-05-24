@@ -770,6 +770,21 @@ public:
 		return res;
 	}
 
+	// Maximum Subarray
+	int maxSubArray(int A[], int n) {
+		if (n == 0) return 0;
+		int current, res;
+
+		current = A[0];
+		res = A[0];
+		for (int i = 1; i < n; i++) {
+			current = max(current + A[i], A[i]);
+			res = max(res, current);
+		}
+		
+		return res;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {

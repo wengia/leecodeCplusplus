@@ -689,7 +689,7 @@ int main()
 	char stop;
 	Solution solution;
 	
-	int gas[] = {1, 2, 3, 5};
+	int gas[] = {-2, 1, -3, 4, -1, 2, 1, -5, 4 };
 	int cost[] = {2, 1, 5, 1};
 
 	vector<int> g(gas, gas+sizeof(gas)/sizeof(int));
@@ -699,9 +699,8 @@ int main()
 	char *needle = "wlrbbmqbhcdarzowkkyhiddqscdxrjmowfrxsjybldbefsarcbynecdyggxxpklorellnmpapqfwkhopkmco";
 	char *s3 = "aaba";
 
-	vector<vector<char>> rec;
 	
-	cout << solution.maximalRectangle(rec) << endl;
+	cout << solution.maxSubArray(gas, sizeof(gas)/sizeof(int)) << endl;
 
 	cin>>stop;
 	return 0;
