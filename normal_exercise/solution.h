@@ -806,6 +806,51 @@ public:
 		return dp[n];
 	}
 
+	// Max Points on a Line
+	struct Point {
+		int x;
+		int y;
+		Point() : x(0), y(0) {}
+		Point(int a, int b) : x(a), y(b) {}
+	};
+
+	void testMaxPoints() {
+		vector<Point> points;
+		points.push_back(Point(0, 0));
+		points.push_back(Point(0, 0));
+		points.push_back(Point(-1, -1));
+		points.push_back(Point(2, 2));
+
+		cout << maxPoints(points) << endl;
+	}
+
+	int maxPoints(vector<Point> &points) {
+		unordered_map<double, int> line;
+		int n = points.size();
+		if (n == 0) return 0;
+
+		int res = (n == 1) ? 1 : 0;
+		
+		for (int i = 0; i < n; i++) {
+			line.clear();
+			int repeat = 1;
+			int local = 0;
+			for (int j = i + 1; j < n; j++) {
+				if (points[i].x == points[j].x && points[i].y == points[j].y) {
+					repeat++;
+					continue;
+				}
+				int divider = points[j].x - points[i].x;
+				double slope = (divider == 0) ? numeric_limits<double>::infinity() : 1.0 * (points[j].y - points[i].y) / divider;
+				line[slope]++;
+				local = max(local, line[slope]);
+			}
+			res = max(res, local + repeat);
+		}
+
+		return res;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {

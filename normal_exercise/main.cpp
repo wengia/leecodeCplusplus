@@ -697,7 +697,10 @@ int main()
 
 	string s = "101250234";
 	
-	cout << solution.numDecodings(s) << endl;
+	cout << INT_MAX << ' ' << DBL_MAX << endl;
+
+	
+	solution.testMaxPoints();
 
 	cin>>stop;
 	return 0;
