@@ -695,12 +695,9 @@ int main()
 	vector<int> g(gas, gas+sizeof(gas)/sizeof(int));
 	vector<int> c(cost, cost+sizeof(cost)/sizeof(int));
 
-	char *hay = "aa";
-	char *needle = "wlrbbmqbhcdarzowkkyhiddqscdxrjmowfrxsjybldbefsarcbynecdyggxxpklorellnmpapqfwkhopkmco";
-	char *s3 = "aaba";
-
+	string s = "101250234";
 	
-	cout << solution.maxSubArray(gas, sizeof(gas)/sizeof(int)) << endl;
+	cout << solution.numDecodings(s) << endl;
 
 	cin>>stop;
 	return 0;
