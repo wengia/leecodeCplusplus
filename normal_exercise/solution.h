@@ -851,6 +851,31 @@ public:
 		return res;
 	}
 
+	// Merge Intervals 
+	static bool compare(Interval i1, Interval i2) { return i1.start < i2.start; }
+	vector<Interval> merge(vector<Interval> &intervals) {
+		vector<Interval> res;
+		int size = intervals.size();
+		if (size <= 1) return intervals;
+
+		sort(intervals.begin(), intervals.end(), compare);
+		int start = intervals[0].start, end = intervals[0].end;
+
+		for (int i = 1; i < size; i++) {
+			if (end < intervals[i].start) {
+				res.push_back(Interval(start, end));
+				start = intervals[i].start;
+				end = intervals[i].end;
+				continue;
+			}
+			if (end <= intervals[i].end)
+				end = intervals[i].end;
+		}
+		res.push_back(Interval(start, end));
+
+		return res;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
