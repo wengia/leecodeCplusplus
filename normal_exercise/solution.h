@@ -911,6 +911,17 @@ public:
 		return dummy.next;
 	}
 
+	// Minimum Depth of Binary Tree
+	int minDepth(TreeNode *root) {
+		if (!root) return 0;
+		if (!root->left && !root->right) return 1;
+
+		int left = (!root->left)? INT_MAX : minDepth(root->left) + 1;
+		int right = (!root->right) ? INT_MAX : minDepth(root->right) + 1;
+
+		return min(left, right);
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
