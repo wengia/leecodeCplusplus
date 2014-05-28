@@ -1,17 +1,17 @@
-﻿Build started 5/27/2014 5:12:18 PM.
+﻿Build started 5/27/2014 11:28:09 PM.
      1>Project "D:\programEx\normal_exercise\normal_exercise\normal_exercise.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-     1>d:\programex\normal_exercise\normal_exercise\solution.h(121): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\solution.h(122): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\solution.h(139): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\solution.h(152): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\solution.h(288): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\solution.h(296): warning C4018: '<=' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\solution.h(364): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\solution.h(516): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\solution.h(556): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(127): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(128): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(145): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(158): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(294): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(302): warning C4018: '<=' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(370): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(522): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(562): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(34): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(35): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(54): warning C4018: '<' : signed/unsigned mismatch
@@ -50,4 +50,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.49
+Time Elapsed 00:00:01.51

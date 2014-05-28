@@ -15,6 +15,12 @@ using namespace std;
 
 class Solution {
 private:
+	struct ListNode {
+		int val;
+		ListNode *next;
+		ListNode(int x) : val(x), next(NULL) {}
+	};
+
 	struct TreeNode {
 		int val;
 		TreeNode *left;
@@ -920,6 +926,26 @@ public:
 		int right = (!root->right) ? INT_MAX : minDepth(root->right) + 1;
 
 		return min(left, right);
+	}
+
+	// Minimum Path Sum
+	// Note: You can only move either down or right at any point in time.
+	int minPathSum(vector<vector<int> > &grid) {
+		if (grid.empty() || grid[0].empty()) return 0;
+		int m = grid.size(), n = grid[0].size();
+		int *dp = new int[n];
+
+		dp[0] = grid[0][0];
+		for (int i = 1; i < n; i++)
+			dp[i] = dp[i - 1] + grid[0][i];
+
+		for (int i = 1; i < m; i++) {
+			dp[0] += grid[i][0];
+			for (int j = 1; j < n; j++)
+				dp[j] = min(dp[j - 1], dp[j]) + grid[i][j];
+		}
+
+		return dp[n - 1];
 	}
 
 private:

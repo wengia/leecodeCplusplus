@@ -695,9 +695,19 @@ int main()
 	vector<int> g(gas, gas+sizeof(gas)/sizeof(int));
 	vector<int> c(cost, cost+sizeof(cost)/sizeof(int));
 
-	solution.merge(gas, 4, cost, 4);
-	for (int i = 0; i < 10; i++)
-		cout << gas[i] << '\t';
+	int g1[] = { 4, 1, 1, 1, 30 };
+	int g2[] = { 2, 10, 30, 1, 30 };
+	int g3[] = { 30, 30, 1, 1, 30 };
+	int g4[] = { 30, 30, 1, 12, 30 };
+	int g5[] = { 30, 30, 2, 1, 10 };
+	vector<vector<int>> grid;
+	grid.push_back(vector<int>(g1, g1 + sizeof(g1) / sizeof(int)));
+	grid.push_back(vector<int>(g2, g2 + sizeof(g2) / sizeof(int)));
+	grid.push_back(vector<int>(g3, g3 + sizeof(g3) / sizeof(int)));
+	grid.push_back(vector<int>(g4, g4 + sizeof(g4) / sizeof(int)));
+	grid.push_back(vector<int>(g5, g5 + sizeof(g5) / sizeof(int)));
+
+	cout << solution.minPathSum(grid) << endl;
 
 	cin>>stop;
 	return 0;
