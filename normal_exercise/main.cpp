@@ -689,18 +689,15 @@ int main()
 	char stop;
 	Solution solution;
 	
-	int gas[] = {-2, 1, -3, 4, -1, 2, 1, -5, 4 };
-	int cost[] = {2, 1, 5, 1};
+	int gas[20] = {1, 2, 3, 4};
+	int cost[] = {4, 6, 7, 8};
 
 	vector<int> g(gas, gas+sizeof(gas)/sizeof(int));
 	vector<int> c(cost, cost+sizeof(cost)/sizeof(int));
 
-	string s = "101250234";
-	
-	cout << INT_MAX << ' ' << DBL_MAX << endl;
-
-	
-	solution.testMaxPoints();
+	solution.merge(gas, 4, cost, 4);
+	for (int i = 0; i < 10; i++)
+		cout << gas[i] << '\t';
 
 	cin>>stop;
 	return 0;
