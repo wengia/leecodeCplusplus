@@ -948,6 +948,42 @@ public:
 		return dp[n - 1];
 	}
 
+	// Minimum Window Substring
+	string minWindow(string S, string T) {
+		int m = S.size(), n = T.size(), count = 0;
+		int *need = new int[128] {0};
+		int *find = new int[128] {0};
+		int resstart = -1, resend = m;
+
+
+		for (int i = 0; i < n; i++)
+			need[T[i]] ++;
+
+		for (int start = 0, end = 0; end < m; end++) {
+			if (need[S[end]] == 0)
+				continue;
+			if (find[S[end]] < need[S[end]])
+				count++;
+			find[S[end]]++;
+			if (count < n) continue;
+
+			// find "start"
+			for (; start < end; start++) {
+				if (need[S[start]] == 0) continue;
+				if (find[S[start]] == need[S[start]]) break;
+				find[S[start]]--;
+			}
+
+			// get res
+			if (end - start < resend - resstart) {
+				resend = end;
+				resstart = start;
+			}
+		}
+
+		return (resstart == -1) ? "" : S.substr(resstart, resend - resstart + 1);
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {

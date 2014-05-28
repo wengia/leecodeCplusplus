@@ -695,7 +695,7 @@ int main()
 	vector<int> g(gas, gas+sizeof(gas)/sizeof(int));
 	vector<int> c(cost, cost+sizeof(cost)/sizeof(int));
 
-	int g1[] = { 4, 1, 1, 1, 30 };
+	/*int g1[] = { 4, 1, 1, 1, 30 };
 	int g2[] = { 2, 10, 30, 1, 30 };
 	int g3[] = { 30, 30, 1, 1, 30 };
 	int g4[] = { 30, 30, 1, 12, 30 };
@@ -706,8 +706,12 @@ int main()
 	grid.push_back(vector<int>(g3, g3 + sizeof(g3) / sizeof(int)));
 	grid.push_back(vector<int>(g4, g4 + sizeof(g4) / sizeof(int)));
 	grid.push_back(vector<int>(g5, g5 + sizeof(g5) / sizeof(int)));
+	*/
 
-	cout << solution.minPathSum(grid) << endl;
+	string a = "cwirwjbfntstplnenpabdttnbiagcnrglbyhnbnavhvmtlqgaqkdmdtnltvpipwuquddvseqabctmsbmllsxrlmegjupyqlpmqsjlyalaegozjbkxtjogxsmgodhgqwsjqeureftknhlwixvdgjjfeyoudvburvdjzxafetqtbdplblrjwcpccdxgyyarvfaxcbciwubzysnzfekeizgledredrvzyyyazakxvlxvfkwlqgpyixjmbargtohrmftngfldskyywwlmccmkzwzayshugontwhicovfhffhbdsphucutatwalfutviorrxvhscoyhvbmntujvofxjbxwispdcexvdscvvtveozresnnpbsmmvjifdxlhdicgchexazcqavusikhlevxaffhkessicwqffuchugyudspncwahuxjzeslll";
+	string b = "ftpejujeztahrwljlao";
+
+	cout << solution.minWindow(a, b) << endl;
 
 	cin>>stop;
 	return 0;
