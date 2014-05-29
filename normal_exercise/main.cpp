@@ -709,16 +709,15 @@ int main()
 	grid.push_back(vector<int>(g5, g5 + sizeof(g5) / sizeof(int)));
 	*/
 
-	string a = "cwirwjbfntstplnenpabdttnbiagcnrglbyhnbnavhvmtlqgaqkdmdtnltvpipwuquddvseqabctmsbmllsxrlmegjupyqlpmqsjlyalaegozjbkxtjogxsmgodhgqwsjqeureftknhlwixvdgjjfeyoudvburvdjzxafetqtbdplblrjwcpccdxgyyarvfaxcbciwubzysnzfekeizgledredrvzyyyazakxvlxvfkwlqgpyixjmbargtohrmftngfldskyywwlmccmkzwzayshugontwhicovfhffhbdsphucutatwalfutviorrxvhscoyhvbmntujvofxjbxwispdcexvdscvvtveozresnnpbsmmvjifdxlhdicgchexazcqavusikhlevxaffhkessicwqffuchugyudspncwahuxjzeslll";
-	string b = "ftpejujeztahrwljlao";
+	string a = "a";
 
-	vector<vector<string>> queen;
+	vector<vector<string>> res;
 
-	queen = solution.solveNQueens(4);
+	res = solution.partition(a);
 
-	for (int i = 0; i < queen.size(); i++) {
-		for (int j = 0; j < queen[i].size(); j++)
-			cout << queen[i][j] << endl;
+	for (int i = 0; i < res.size(); i++) {
+		for (int j = 0; j < res[i].size(); j++)
+			cout << res[i][j] << '\t';
 		cout << endl;
 	}
 

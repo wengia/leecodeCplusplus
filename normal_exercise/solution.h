@@ -1027,6 +1027,37 @@ public:
 		return true;
 	}
 
+	// Palindrome Partitioning
+	vector<vector<string>> partition(string s) {
+		vector<string> palindrome;
+		vector<vector<string>> res;
+
+		partition(s, 0, palindrome, res);
+
+		return res;
+	}
+
+	void partition(const string s, int start, vector<string> &palindrome, vector<vector<string>> &res) {
+		int end = s.size();
+		if (start == end) {
+			res.push_back(palindrome);
+			return;
+		}
+
+		for (int length = 1; length + start <= end; length++) {
+			int ins = 0;
+			for (; ins < length / 2; ins++) {
+				if (s[start + ins] != s[start + length - 1 - ins])
+					break;
+			}
+			if (ins == length / 2) {
+				palindrome.push_back(s.substr(start, length));
+				partition(s, start + length, palindrome, res);
+				palindrome.pop_back();
+			}
+		}
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
