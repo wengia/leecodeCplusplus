@@ -721,7 +721,7 @@ int main()
 		cout << endl;
 	}*/
 
-	cout << solution.minCut(a) << endl;
+	solution.test();
 
 	cin>>stop;
 	return 0;

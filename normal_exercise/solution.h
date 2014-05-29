@@ -1080,6 +1080,31 @@ public:
 		return dp[n-1];
 	}
 
+	// Partition List
+	ListNode *partition(ListNode *head, int x) {
+		ListNode dummy(0), *pre = &dummy, *pos;
+		dummy.next = head;
+
+		// Find the place to insert
+		while (pre->next != NULL && pre->next->val < x) pre = pre->next;
+
+		// resort the list
+		pos = pre;
+		while (pos->next) {
+			if (pos->next->val < x) {
+				ListNode *tmp = pos->next;
+				pos->next = pos->next->next;
+				tmp->next = pre->next;
+				pre->next = tmp;
+				pre = pre->next;
+			}
+			else
+				pos = pos->next;
+		}
+
+		return dummy.next;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
