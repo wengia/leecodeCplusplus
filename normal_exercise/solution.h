@@ -1058,6 +1058,28 @@ public:
 		}
 	}
 
+	// Palindrome II
+	int minCut(string s) {
+		int n = s.size();
+		if (n == 0 || n == 1) return 0;
+		int *dp = new int[n];
+		bool *isPalindrome = new bool[n];
+
+		dp[0] = 0;
+		for (int i = 1; i < n; i++) {
+			dp[i] = dp[i - 1] + 1;
+			isPalindrome[i] = true;
+			for (int j = 0; j < i; j++) {
+				isPalindrome[j] = (s[i] == s[j]) ? isPalindrome[j + 1] : false;
+
+				if (isPalindrome[j])
+					dp[i] = (j == 0) ? 0 : min(dp[i], dp[j - 1] + 1);
+			}
+		}
+
+		return dp[n-1];
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
