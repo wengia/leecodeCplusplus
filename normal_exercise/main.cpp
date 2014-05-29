@@ -684,6 +684,7 @@ vector<string> anagrams(vector<string> &strs) {
     return res;
 }
 
+
 int main()
 {
 	char stop;
@@ -711,7 +712,16 @@ int main()
 	string a = "cwirwjbfntstplnenpabdttnbiagcnrglbyhnbnavhvmtlqgaqkdmdtnltvpipwuquddvseqabctmsbmllsxrlmegjupyqlpmqsjlyalaegozjbkxtjogxsmgodhgqwsjqeureftknhlwixvdgjjfeyoudvburvdjzxafetqtbdplblrjwcpccdxgyyarvfaxcbciwubzysnzfekeizgledredrvzyyyazakxvlxvfkwlqgpyixjmbargtohrmftngfldskyywwlmccmkzwzayshugontwhicovfhffhbdsphucutatwalfutviorrxvhscoyhvbmntujvofxjbxwispdcexvdscvvtveozresnnpbsmmvjifdxlhdicgchexazcqavusikhlevxaffhkessicwqffuchugyudspncwahuxjzeslll";
 	string b = "ftpejujeztahrwljlao";
 
-	cout << solution.minWindow(a, b) << endl;
+	vector<vector<string>> queen;
+
+	queen = solution.solveNQueens(4);
+
+	for (int i = 0; i < queen.size(); i++) {
+		for (int j = 0; j < queen[i].size(); j++)
+			cout << queen[i][j] << endl;
+		cout << endl;
+	}
+
 
 	cin>>stop;
 	return 0;

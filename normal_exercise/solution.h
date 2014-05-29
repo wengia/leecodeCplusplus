@@ -984,6 +984,49 @@ public:
 		return (resstart == -1) ? "" : S.substr(resstart, resend - resstart + 1);
 	}
 
+	// N Queens
+	vector<vector<string>> solveNQueens(int n) {
+		vector<vector<string>> res;
+		vector<pair<int, int>> board;
+		vector<string> current;
+
+		solveNQueens(n, board, current, res);
+
+		return res;
+	}
+
+	void solveNQueens(const int n, vector<pair<int, int>> &board, vector<string> &current, vector<vector<string>> &res) {
+		int row = current.size();
+		if (row == n) {
+			res.push_back(current);
+			return;
+		}
+
+		current.push_back(string(n, '.'));
+		for (int j = 0; j < n; j++) {
+			if (!isSafe(board, row, j))
+				continue;
+			current[row][j] = 'Q';
+			board.push_back(pair<int, int>(row, j));
+			solveNQueens(n, board, current, res);
+
+			current[row][j] = '.';
+			board.pop_back();
+		}
+		current.pop_back();
+	}
+
+	bool isSafe(const vector<pair<int, int>> &board, int x, int y) {
+		int b = board.size();
+
+		for (int i = 0; i < b; i++) {
+			if (x == board[i].first || y == board[i].second || abs(board[i].first - x) == abs(board[i].second - y))
+				return false;
+		}
+
+		return true;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
