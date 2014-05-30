@@ -1121,6 +1121,24 @@ public:
 		return res;
 	}
 
+	// Pascal's Triangle
+	vector<int> getRow(int rowIndex) {
+		vector<int> res(rowIndex + 1, 1);
+		int before, now;
+
+		for (int i = 2; i <= rowIndex; i++) {
+			before = res[0];
+			for (int j = 1; j < i / 2 + 1; j++) {
+				now = res[j];
+				res[j] = before + res[j];
+				res[i - j] = res[j];
+				before = now;
+			}
+		}
+
+		return res;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {

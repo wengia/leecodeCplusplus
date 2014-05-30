@@ -712,13 +712,15 @@ int main()
 	string a = "fifgbeajcacehiicccfecbfhhgfiiecdcjjffbghdidbhbdbfbfjccgbbdcjheccfbhafehieabbdfeigbiaggchaeghaijfbjhi";
 
 	vector<vector<int>> res = solution.generate(5);
+	vector<int> row = solution.getRow(5);
 
-	for (int i = 0; i < res.size(); i++) {
+	/*for (int i = 0; i < res.size(); i++) {
 		for (int j = 0; j < res[i].size(); j++)
 			cout << res[i][j] << '\t';
 		cout << endl;
-	}
-
+	}*/
+	for (int i = 0; i < row.size(); i++)
+		cout << row[i] << ' ';
 
 	cin>>stop;
 	return 0;
