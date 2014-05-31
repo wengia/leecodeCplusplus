@@ -1142,15 +1142,27 @@ public:
 	// Permutation Sequence
 	string getPermutation(int n, int k) {
 		string res;
-		for (int i = 1; i <= n; i++)
+		int total = 1;
+		for (int i = 1; i <= n; i++) {
 			res.push_back(i + '0');
-		
-		while (--k) nextPermutation(res);
+			total *= i;
+		}
+
+		//while (--k) nextPermutation(res);
+		k--;
+		while (n) {
+			total /= n;
+			int idx = k / total;
+			k %= total;
+			res.push_back(res[idx]);
+			res.erase(idx, 1);
+			n--;
+		}
 
 		return res;
 	}
 
-	void nextPermutation(string &num) {
+	void nextPermutation(string &num) { // Recursion Strategy
 		int n = num.size(), pos;
 		if (n <= 1) return;
 
@@ -1170,6 +1182,14 @@ public:
 			}
 		}
 	}
+
+	// Populating Next Right Pointers in Each Node
+	struct TreeLinkNode {
+		int val;
+		TreeLinkNode *left, *right, *next;
+		TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
+	};
+
 
 private:
 	// Return the height of one branch
