@@ -1121,7 +1121,7 @@ public:
 		return res;
 	}
 
-	// Pascal's Triangle
+	// Pascal's Triangle II
 	vector<int> getRow(int rowIndex) {
 		vector<int> res(rowIndex + 1, 1);
 		int before, now;
@@ -1137,6 +1137,38 @@ public:
 		}
 
 		return res;
+	}
+
+	// Permutation Sequence
+	string getPermutation(int n, int k) {
+		string res;
+		for (int i = 1; i <= n; i++)
+			res.push_back(i + '0');
+		
+		while (--k) nextPermutation(res);
+
+		return res;
+	}
+
+	void nextPermutation(string &num) {
+		int n = num.size(), pos;
+		if (n <= 1) return;
+
+		for (pos = n - 2; pos >= 0; pos--)
+			if (num[pos] < num[pos + 1]) break;
+			
+		if (pos < 0) { // find max permutation
+			reverse(num.begin(), num.end());
+			return;
+		}
+
+		for (int i = n-1; i > pos; i--) {
+			if (num[i] > num[pos]) {
+				swap(num[i], num[pos]);
+				sort(num.begin() + pos + 1, num.end());
+				break;
+			}
+		}
 	}
 
 private:
