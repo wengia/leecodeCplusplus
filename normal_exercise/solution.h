@@ -1212,6 +1212,26 @@ public:
 		}
 	}
 
+	// Populating Next Right Pointers in Each Node for any binary tree
+	void connect_2(TreeLinkNode *root) {
+		if (!root) return;
+		TreeLinkNode *current = root, *last, *node;
+
+		while (current) {
+			last = NULL;
+			node = current;
+			while (node) {
+				if (!last) current = node->left ? node->left : node->right;
+				if (node->left || node->right) {
+					if (last) last->next = node->left ? node->left : node->right;
+					if (node->left && node->right) node->left->next = node->right;
+					last = node->right ? node->right : node->left;
+				}
+				node = node->next;
+			}
+		}
+	}
+
 
 private:
 	// Return the height of one branch
