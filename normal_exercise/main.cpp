@@ -719,7 +719,7 @@ int main()
 	for (int i = 0; i < row.size(); i++)
 		cout << row[i] << ' ';*/
 	
-	cout << a << endl;
+	cout << pow(2.0, 4) << endl;
 	
 
 	cin>>stop;

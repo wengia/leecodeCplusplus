@@ -1189,6 +1189,28 @@ public:
 		TreeLinkNode *left, *right, *next;
 		TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
 	};
+	void connect(TreeLinkNode *root) {
+		if (!root) return;
+		queue<TreeLinkNode *> nodeQue;
+		int level = 0, count = pow(2.0, level);
+
+		nodeQue.push(root);
+		while (!nodeQue.empty()) {
+			TreeLinkNode *tmp = nodeQue.front(); nodeQue.pop();
+
+			if (--count == 0) {
+				tmp->next = NULL;
+				level++;
+				count = pow(2.0, level);
+			}
+			else {
+				tmp->next = nodeQue.front();
+			}
+
+			if (tmp->left) nodeQue.push(tmp->left);
+			if (tmp->right) nodeQue.push(tmp->right);
+		}
+	}
 
 
 private:
