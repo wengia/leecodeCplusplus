@@ -1232,6 +1232,29 @@ public:
 		}
 	}
 
+	// Recover Binary Search Tree
+	void recoverTree(TreeNode *root) {
+		if (!root || !root->left && !root->right) return;
+
+		TreeNode *pre = NULL, *first = NULL, *second = NULL;
+		recoverTree(pre, root, first, second);
+
+		swap(first->val, second->val);
+	}
+
+	void recoverTree(TreeNode *&pre, TreeNode *cur, TreeNode *&first, TreeNode *&second) {
+		if (!cur) return;
+
+		if (cur->left) recoverTree(pre, cur->left, first, second);
+		if (pre && pre->val > cur->val) {
+			if (!first)
+				first = pre;
+
+			second = cur;
+		}
+		pre = cur;
+		if (cur->right) recoverTree(pre, cur->right, first, second);
+	}
 
 private:
 	// Return the height of one branch
