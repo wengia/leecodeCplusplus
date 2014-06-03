@@ -1275,6 +1275,35 @@ public:
 		return res;
 	}
 
+	// Remove Duplicates from Sorted List II
+	ListNode *deleteDuplicates_2(ListNode *head) {
+		if (!head || !head->next) return head;
+		bool dup;
+		ListNode dummy(0), *pre = &dummy;
+		dummy.next = head;
+
+		while (head) {
+			dup = false;
+			while (head->next && head->val == head->next->val) {
+				ListNode *tmp = head->next;
+				head->next = head->next->next;
+				delete tmp;
+				dup = true;
+			}
+			if (dup) {
+				pre->next = head->next;
+				delete head;
+				head = pre->next;
+			}
+			else {
+				pre = pre->next;
+				head = head->next;
+			}
+		}
+
+		return dummy.next;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
