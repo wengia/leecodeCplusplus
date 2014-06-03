@@ -1256,6 +1256,25 @@ public:
 		if (cur->right) recoverTree(pre, cur->right, first, second);
 	}
 
+	// Remove Duplicates from Sorted List 
+	ListNode *deleteDuplicates(ListNode *head) {
+		if (!head || !head->next) return head;
+		ListNode *res = head, *pos = head->next;
+
+		while (pos) {
+			if (pos->val == head->val) {
+				head->next = pos->next;
+				delete pos;
+				pos = head;
+			}
+			else
+				head = head->next;
+			pos = pos->next;
+		}
+
+		return res;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
