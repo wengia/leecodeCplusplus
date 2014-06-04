@@ -10,6 +10,7 @@
 #include <unordered_set>
 #include <algorithm>
 #include <queue>
+#include <regex>
 
 using namespace std;
 
@@ -1323,6 +1324,37 @@ public:
 			pos = pos->next->next;
 		}
 		st.top()->next = NULL;
+	}
+
+	// Restore IP Addresses
+	vector<string> restoreIpAddresses(string s) {
+		vector<string> res;
+		if (s.size() < 4 || s.size() > 12) return res;
+		string current;
+
+		restoreIpAddresses(s, 0, 4, current, res);
+
+		return res;
+	}
+
+	void restoreIpAddresses(const string s, int pos, int level, string &current, vector<string> &res) {
+		int n = s.size();
+		if (level == 0) {
+			res.push_back(current);
+			return;
+		}
+
+		int minIns = n - pos - (level - 1) * 3;
+		int ins = minIns > 0 ? minIns : 1;
+		for (;ins + pos <= n - level + 1 && ins <= 3; ins++) {
+			string slot = s.substr(pos, ins);
+			if (strcmp(slot.c_str(), "0")==0 || slot[0] != '0' && atoi(slot.c_str())<256) {
+				if (level != 1) slot += '.';
+				current.append(slot);
+				restoreIpAddresses(s, pos + ins, level-1, current, res);
+				current.erase(current.size() - slot.size(), slot.size());
+			}
+		}	
 	}
 
 private:

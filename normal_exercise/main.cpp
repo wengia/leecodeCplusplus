@@ -709,17 +709,16 @@ int main()
 	grid.push_back(vector<int>(g5, g5 + sizeof(g5) / sizeof(int)));
 	*/
 
-	string a = solution.getPermutation(5, 2);
+	string a = "19216811";
+	vector<string> res = solution.restoreIpAddresses(a);
 
 	/*for (int i = 0; i < res.size(); i++) {
 		for (int j = 0; j < res[i].size(); j++)
 			cout << res[i][j] << '\t';
 		cout << endl;
-	}
-	for (int i = 0; i < row.size(); i++)
-		cout << row[i] << ' ';*/
-	
-	cout << pow(2.0, 4) << endl;
+	}*/
+	for (int i = 0; i < res.size(); i++)
+		cout << res[i] << endl;
 	
 
 	cin>>stop;
