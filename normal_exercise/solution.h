@@ -1357,6 +1357,25 @@ public:
 		}	
 	}
 
+	// Reverse Linked List II
+	ListNode *reverseBetween(ListNode *head, int m, int n) {
+		ListNode dummy(0), *pre = &dummy;
+		dummy.next = head;
+		
+		n -= m;
+		while (--m) pre = pre->next;
+		head = pre->next;
+		
+		while (n--) {
+			ListNode *move = head->next;
+			head->next = move->next;
+			move->next = pre->next;
+			pre->next = move;
+		}
+
+		return dummy.next;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
