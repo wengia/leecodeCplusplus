@@ -1304,6 +1304,27 @@ public:
 		return dummy.next;
 	}
 
+	// Reorder List
+	void reorderList(ListNode *head) {
+		if (!head) return;
+		ListNode *pos = head;
+		stack<ListNode *> st;
+
+		while (pos) {
+			st.push(pos);
+			pos = pos->next;
+		}
+
+		pos = head;
+		while (pos != st.top() && pos->next != st.top()) {
+			ListNode *rear = st.top(); st.pop();
+			rear->next = pos->next;
+			pos->next = rear;
+			pos = pos->next->next;
+		}
+		st.top()->next = NULL;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
