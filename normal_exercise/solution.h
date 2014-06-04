@@ -1401,6 +1401,30 @@ public:
 		
 	}
 
+	// Rotate List
+	ListNode *rotateRight(ListNode *head, int k) {
+		if (!head || k == 0) return head;
+		int count = 1;
+		ListNode *tail = head;
+
+		while (tail->next) {
+			tail = tail->next;
+			count++;
+		}
+		k = k % count;
+		if (k == 0) return head;
+
+		ListNode *pre = head;
+		count -= k;
+		while (--count) pre = pre->next;
+
+		tail->next = head;
+		head = pre->next;
+		pre->next = NULL;
+
+		return head;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
