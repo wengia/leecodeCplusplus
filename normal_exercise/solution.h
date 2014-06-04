@@ -1376,6 +1376,31 @@ public:
 		return dummy.next;
 	}
 
+	// Reverse Words in a String
+	void reverseWords(string &s) {
+		reverse(s.begin(), s.end());
+		int start = s.size() - 1, end = s.size() - 1;
+
+		while (start >= 0) {
+			if (s[end] == ' ') {
+				s.erase(end, 1);
+				end--;
+				start = end;
+			}
+			else if (s[start] == ' ') {
+				reverse(s.begin() + start + 1, s.begin() + end + 1);
+				end = --start;
+			}
+			else
+				start--;
+		}
+		if (s[0] == ' ')
+			s.erase(0, 1);
+		else
+			reverse(s.begin(), s.begin() + end + 1);
+		
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
