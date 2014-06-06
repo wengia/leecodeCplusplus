@@ -1464,6 +1464,34 @@ public:
 				matrix[i][col[j]] = 0;
 	}
 
+	void setZeroes_2(vector<vector<int> > &matrix) {
+		if (matrix.size() == 0 || matrix[0].size() == 0) return;
+		int m = matrix.size(), n = matrix[0].size();
+		int row = 0, col = 0;
+
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				if (matrix[i][j] == 0) {
+					row |= (1 << i);
+					col |= (1 << j);
+				}
+			}
+		}
+
+		for (int i = 0; i < m; i++) {
+			int tmp = row&(1 << i);
+			for (int j = 0; tmp != 0 && j < n; j++)
+				matrix[i][j] = 0;
+		}
+		for (int j = 0; j < n; j++) {
+			int tmp = col&(1 << j);
+			for (int i = 0; tmp != 0 && i < m; i++)
+				matrix[i][j] = 0;
+		}
+	}
+
+	// 
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
