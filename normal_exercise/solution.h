@@ -1490,7 +1490,32 @@ public:
 		}
 	}
 
-	// 
+	// Search in Rotated Sorted Array II
+	bool search(int A[], int n, int target) {
+		int i = 0, j = n - 1;
+
+		while (i < j && A[i] == A[j]) j--;
+		while (i <= j) {
+			int mid = (i + j) / 2;
+			if (A[mid] == target)
+				return true;
+			if (A[i] <= A[mid]) {
+				if (A[i] <= target && target < A[mid])
+					j = mid;
+				else
+					i = mid + 1;
+			}
+			else {
+				if (A[mid] < target && target <= A[j])
+					i = mid;
+				else
+					j = mid - 1;
+			}
+
+		}
+
+		return false;
+	}
 
 private:
 	// Return the height of one branch
