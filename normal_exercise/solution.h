@@ -1425,6 +1425,23 @@ public:
 		return head;
 	}
 
+	// Search a 2D Matrix
+	bool searchMatrix(vector<vector<int> > &matrix, int target) {
+		if (matrix.size() == 0 || matrix[0].size() == 0) return false;
+		int m = matrix.size(), n = matrix[0].size(), i;
+
+		for (i = 0; i < m; i++)
+			if (target < matrix[i][0])
+				break;
+		if (i-- == 0) return false;
+		
+		for (int j = 0; j < n; j++)
+			if (target == matrix[i][j])
+				return true;
+
+		return false;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
