@@ -1540,6 +1540,25 @@ public:
 		return res.empty() ? "/" : res;
 	}
 
+	// Sort Colors
+	void sortColors(int A[], int n) {
+		int red = 0, blue = n-1, white = 0;
+		
+		while (white <= blue) {
+			switch (A[white])
+			{
+			case 0:
+				swap(A[white++], A[red++]);
+				break;
+			case 1:
+				white++;
+				break;
+			case 2:
+				swap(A[white], A[blue--]);
+			}
+		}
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
