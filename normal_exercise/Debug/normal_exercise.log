@@ -1,4 +1,4 @@
-﻿Build started 6/9/2014 11:48:15 PM.
+﻿Build started 6/9/2014 11:53:46 PM.
      1>Project "D:\programEx\normal_exercise\normal_exercise\normal_exercise.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
@@ -16,7 +16,8 @@
      1>d:\programex\normal_exercise\normal_exercise\solution.h(1205): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
      1>d:\programex\normal_exercise\normal_exercise\solution.h(1458): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\solution.h(1462): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\solution.h(1586): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(1587): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\solution.h(1597): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(34): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(35): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(54): warning C4018: '<' : signed/unsigned mismatch
@@ -57,4 +58,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.63
+Time Elapsed 00:00:01.61

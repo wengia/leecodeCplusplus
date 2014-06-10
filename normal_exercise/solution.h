@@ -1577,7 +1577,7 @@ public:
 		vector<int> cur;
 
 		sort(S.begin(), S.end());
-		subsets(S, 0, cur, res);
+		subsets_2(S, 0, cur, res);
 		res.push_back(vector<int>());
 
 		return res;
@@ -1588,6 +1588,18 @@ public:
 			cur.push_back(s[i]);
 			res.push_back(cur);
 			subsets(s, i + 1, cur, res);
+			cur.pop_back();
+		}
+	}
+
+	// Subsets II
+	void subsets_2(const vector<int> &s, int start, vector<int> &cur, vector<vector<int>> &res) {
+		for (int i = start; i < s.size(); i++) {
+			if (i>start && s[i] == s[i - 1])
+				continue;
+			cur.push_back(s[i]);
+			res.push_back(cur);
+			subsets_2(s, i + 1, cur, res);
 			cur.pop_back();
 		}
 	}

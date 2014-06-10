@@ -704,7 +704,7 @@ int main()
 	grid.push_back(vector<int>(g5, g5 + sizeof(g5) / sizeof(int)));
 	*/
 
-	int theSet[] = {1};
+	int theSet[] = {1, 2, 2};
 	vector<int> s(theSet, theSet + sizeof(theSet)/sizeof(int));
 	vector<vector<int>> res = solution.subsets(s);
 	for (int i = 0; i < res.size(); i++) {
