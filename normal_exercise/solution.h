@@ -1517,6 +1517,29 @@ public:
 		return false;
 	}
 
+	// Simplify Path
+	string simplifyPath(string path) {
+		string res = "";
+		path += "/";
+		size_t pos, last = 0;
+
+		pos = path.find_first_of("/");
+		while (pos != string::npos) {
+			string tmp = path.substr(last, pos - last);
+			if (tmp == "..") {
+				if (!res.empty())
+					res.resize(res.find_last_of("/"));
+			}
+			else if (!tmp.empty() && tmp != ".") {
+				res += ("/" + tmp);
+			}
+			last = pos + 1;
+			pos = path.find_first_of("/", last);
+		}
+
+		return res.empty() ? "/" : res;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {

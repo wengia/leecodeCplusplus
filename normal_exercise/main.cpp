@@ -714,9 +714,8 @@ int main()
 
 	//for (int i = 0; i < res.size(); i++)
 	//	cout << res[i] << endl;
-	int a[] = { 1, 3, 1, 1, 1 };
-	cout << solution.search(a, sizeof(a)/sizeof(int), 3) << endl;
-
+	string s = "/.../";
+	cout << solution.simplifyPath(s) << endl;
 
 	cin>>stop;
 	return 0;
