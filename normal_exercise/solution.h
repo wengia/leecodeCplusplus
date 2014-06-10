@@ -1559,6 +1559,18 @@ public:
 		}
 	}
 
+	// Sqrt
+	int sqrt(int x) {
+		if (x == 0) return x;
+		double last = 0, current = 1;
+		while (current != last) {
+			last = current;
+			current = (current + x / current) / 2;
+		}
+
+		return int(current);
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {

@@ -714,10 +714,7 @@ int main()
 
 	//for (int i = 0; i < res.size(); i++)
 	//	cout << res[i] << endl;
-	int A[] = {2, 0, 2, 1, 1, 0}, n = sizeof(A)/sizeof(int);
-	solution.sortColors(A, n);
-	for (int i = 0; i < n; i++)
-		cout << A[i] << endl;
+	cout << solution.sqrt(1) << endl;
 
 	cin>>stop;
 	return 0;
