@@ -1559,7 +1559,7 @@ public:
 		}
 	}
 
-	// Sqrt
+	// Sqrt, Newton iteration
 	int sqrt(int x) {
 		if (x == 0) return x;
 		double last = 0, current = 1;
