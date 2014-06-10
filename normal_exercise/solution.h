@@ -1571,6 +1571,27 @@ public:
 		return int(current);
 	}
 
+	// Subsets
+	vector<vector<int> > subsets(vector<int> &S) {
+		vector<vector<int>> res;
+		vector<int> cur;
+
+		sort(S.begin(), S.end());
+		subsets(S, 0, cur, res);
+		res.push_back(vector<int>());
+
+		return res;
+	}
+
+	void subsets(const vector<int> &s, int start, vector<int> &cur, vector<vector<int>> &res) {
+		for (int i = start; i < s.size(); i++) {
+			cur.push_back(s[i]);
+			res.push_back(cur);
+			subsets(s, i + 1, cur, res);
+			cur.pop_back();
+		}
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {

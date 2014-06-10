@@ -704,17 +704,18 @@ int main()
 	grid.push_back(vector<int>(g5, g5 + sizeof(g5) / sizeof(int)));
 	*/
 
-	//vector<string> res;
-	/*solution.setZeroes_2(grid);
-	for (int i = 0; i < grid.size(); i++) {
-		for (int j = 0; j < grid[i].size(); j++)
-			cout << grid[i][j] << '\t';
+	int theSet[] = {1};
+	vector<int> s(theSet, theSet + sizeof(theSet)/sizeof(int));
+	vector<vector<int>> res = solution.subsets(s);
+	for (int i = 0; i < res.size(); i++) {
+		for (int j = 0; j < res[i].size(); j++)
+			cout << res[i][j] << '\t';
 		cout << endl;
-	}*/
+	}
 
 	//for (int i = 0; i < res.size(); i++)
 	//	cout << res[i] << endl;
-	cout << solution.sqrt(1) << endl;
+	
 
 	cin>>stop;
 	return 0;
