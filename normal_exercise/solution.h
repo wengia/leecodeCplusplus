@@ -1639,6 +1639,53 @@ public:
 			isSymmetric(leftTree->right, rightTree->left);
 	}
 
+	// Sudoku Solver
+	void solveSudoku(vector<vector<char>> &board) {
+		fillCells(board, 0, 0);
+	}
+
+	bool fillCells(vector<vector<char>> &board, int r, int c) {
+		findNextBlank(board, r, c);
+		if (r == 9 && c == 9) return true;
+		for (int i = 1; i <= 9; i++) {
+			if (!isAvail(board, r, c, '0' + i))
+				continue;
+			board[r][c] = '0' + i;
+			if (fillCells(board, r, c + 1))
+				return true;
+			board[r][c] = '.';
+		}
+
+		return false;
+	}
+
+	void findNextBlank(const vector<vector<char>> &board, int &r, int &c) {
+		int col;
+		for (int i = r; i < 9; i++) {
+			col = (i == r) ? c : 0;
+			for (int j = col; j < 9; j++)
+				if (board[i][j] == '.') {
+				r = i;
+				c = j;
+				return;
+				}
+		}
+
+		r = 9; c = 9;
+	}
+
+	bool isAvail(const vector<vector<char>> &board, const int r, const int c, const char num) {
+		for (int i = 0; i < 9; i++)
+			if (board[i][c] == num) return false;
+		for (int j = 0; j < 9; j++)
+			if (board[r][j] == num) return false;
+		int cell_i = r / 3 * 3, cell_j = c / 3 * 3;
+		for (int i = cell_i; i < cell_i + 3; i++)
+			for (int j = cell_j; j < cell_j + 3; j++)
+				if (board[i][j] == num) return false;
+		return true;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
