@@ -1604,6 +1604,25 @@ public:
 		}
 	}
 
+	// Sum Root to Leaf Numbers
+	int sumNumbers(TreeNode *root) {
+		int res = 0;
+		sumNumbers(root, 0, res);
+		return res;
+	}
+
+	void sumNumbers(TreeNode *root, int current, int &res) {
+		if (!root) return;
+		current = current * 10 + root->val;
+
+		if (!root->left && !root->right) {
+			res += current;
+			return;
+		}
+		sumNumbers(root->left, current, res);
+		sumNumbers(root->right, current, res);
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
