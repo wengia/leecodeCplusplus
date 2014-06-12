@@ -1623,6 +1623,22 @@ public:
 		sumNumbers(root->right, current, res);
 	}
 
+	// Symmetric Tree
+	bool isSymmetric(TreeNode *root) {
+		if (!root) return true;
+		
+		return isSymmetric(root->left, root->right);
+	}
+
+	bool isSymmetric(TreeNode *leftTree, TreeNode *rightTree) {
+		if (!leftTree && !rightTree) return true;
+		if (!leftTree || !rightTree) return false;
+
+		return leftTree->val == rightTree->val &&
+			isSymmetric(leftTree->left, rightTree->right) &&
+			isSymmetric(leftTree->right, rightTree->left);
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
