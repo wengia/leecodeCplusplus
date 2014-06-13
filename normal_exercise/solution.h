@@ -1732,6 +1732,29 @@ public:
 		return line;
 	}
 
+	// Triangle
+	int minimumTotal(vector<vector<int> > &triangle) {
+		int *dp, n = triangle.size();
+		dp = new int[n] {0};
+		for (int row = 0; row < n; row++) {
+			int before = dp[0];
+			for (int j = 0; j <= row; j++) {
+				if (j == 0 || j == row)
+					dp[j] = before + triangle[row][j];
+				else {
+					int tmp = before;
+					before = dp[j];
+					dp[j] = min(dp[j], tmp) + triangle[row][j];
+				}
+			}
+		}
+
+		int res = dp[0];
+		for (int i = 1; i < n; i++)
+			res = min(res, dp[i]);
+		return res;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
