@@ -1735,7 +1735,7 @@ public:
 	// Triangle
 	int minimumTotal(vector<vector<int> > &triangle) {
 		int *dp, n = triangle.size();
-		dp = new int[n] {0};
+		dp = new int[n];
 		for (int row = 0; row < n; row++) {
 			int before = dp[0];
 			for (int j = 0; j <= row; j++) {
@@ -1753,6 +1753,23 @@ public:
 		for (int i = 1; i < n; i++)
 			res = min(res, dp[i]);
 		return res;
+	}
+
+	// Unique Binary Search Trees
+	int numTrees(int n) {
+		if (n < 3) return n;
+		int *dp = new int[n + 1];
+		fill_n(dp, n + 1, 0);
+
+		dp[0] = 1;
+		dp[1] = 1;
+
+		for (int i = 2; i <= n; i++) {
+			for (int j = i - 1; j >= 0; j--)
+				dp[i] += (dp[j] * dp[i - 1 - j]);
+		}
+
+		return dp[n];
 	}
 
 private:
