@@ -1686,6 +1686,52 @@ public:
 		return true;
 	}
 
+	// Text Justification
+	vector<string> fullJustify(vector<string> &words, int L) {
+		int pos = 0, letterCount = -1;
+		vector<string> res;
+		if ((words.empty() || words[0].empty()) && L==0) return res;
+
+		for (int i = 0; i < words.size(); i++) {
+			if (letterCount + 1 + words[i].size() > L) {
+				// form a line
+				res.push_back(formLine(words, L - letterCount + i - 1 - pos, pos, i - 1));
+
+				// reset the variables
+				letterCount = words[i].size();
+				pos = i;
+			}
+			else {
+				letterCount += (1 + words[i].size());
+			}
+		}
+		res.push_back(words[pos]);
+		int last = res.size() - 1;
+		for (int i = pos + 1; i < words.size(); i++) {
+			res[last] += (" " + words[i]);
+		}
+		res[last] += string(L - res[last].size(), ' ');
+
+		return res;
+	}
+
+	string formLine(const vector<string> &words, int len, int start, int end) {
+		string line;
+		if (end == start) {
+			line = words[start] + string(len, ' ');
+			return line;
+		}
+
+		int odd = len % (end - start), ins = len / (end - start);
+		line.append(words[start]);
+		while (++start <= end) {
+			line.append(odd-- > 0 ? 1 + ins : ins, ' ');
+			line.append(words[start]);
+		}
+
+		return line;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {

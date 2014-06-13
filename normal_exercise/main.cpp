@@ -704,19 +704,18 @@ int main()
 	grid.push_back(vector<int>(g5, g5 + sizeof(g5) / sizeof(int)));
 	*/
 
-	int theSet[] = {1, 2, 2};
-	vector<int> s(theSet, theSet + sizeof(theSet)/sizeof(int));
-	vector<vector<int>> res = solution.subsets(s);
-	for (int i = 0; i < res.size(); i++) {
+	string theSet[] = { "Don't", "go", "around", "saying", "the", "world", "owes", "you", "a", "living;", "the", "world", "owes", "you", "nothing;", "it", "was", "here", "first." };
+	vector<string> s(theSet, theSet + sizeof(theSet)/sizeof(string));
+	vector<string> res = solution.fullJustify(s, 30);
+	/*for (int i = 0; i < res.size(); i++) {
 		for (int j = 0; j < res[i].size(); j++)
 			cout << res[i][j] << '\t';
 		cout << endl;
-	}
+	}*/
 
-	//for (int i = 0; i < res.size(); i++)
-	//	cout << res[i] << endl;
+	for (int i = 0; i < res.size(); i++)
+		cout << res[i] << '|' << endl;
 	
-
 	cin>>stop;
 	return 0;
 }
