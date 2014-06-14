@@ -712,8 +712,7 @@ int main()
 			cout << res[i][j] << '\t';
 		cout << endl;
 	}*/
-
-	cout << solution.numTrees(4) << endl;
+	solution.generateTrees(3);
 	
 	cin>>stop;
 	return 0;

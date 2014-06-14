@@ -1772,6 +1772,43 @@ public:
 		return dp[n];
 	}
 
+	// Unique Binary Search Trees II
+	vector<TreeNode *> generateTrees(int n) {
+		return generateTrees(1, n);
+	}
+
+	vector<TreeNode *> generateTrees(int value, int length) {
+		vector<TreeNode *> children;
+		if (length == 0) {
+			children.push_back(NULL);
+			return children;
+		}
+		for (int i = value; i < value + length; i++) {
+			TreeNode *cur;
+			vector<TreeNode *> left_children = generateTrees(value, i - value);
+			vector<TreeNode *> right_children = generateTrees(i + 1, value + length - i - 1);
+			
+			for (int l = 0; l < left_children.size(); l++)
+				for (int r = 0; r < right_children.size(); r++) {
+					cur = new TreeNode(i);
+					cur->left = copyTree(left_children[l]);
+					cur->right = copyTree(right_children[r]);
+					children.push_back(cur);
+				}
+		}
+
+		return children;
+	}
+
+	TreeNode* copyTree(TreeNode *node) {
+		if (!node) return NULL;
+		TreeNode *c = new TreeNode(node->val);
+		if (node->left) c->left = copyTree(node->left);
+		if (node->right) c->right = copyTree(node->right);
+
+		return c;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
