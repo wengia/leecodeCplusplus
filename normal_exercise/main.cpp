@@ -712,7 +712,7 @@ int main()
 			cout << res[i][j] << '\t';
 		cout << endl;
 	}*/
-	solution.generateTrees(3);
+	cout << solution.uniquePaths(3, 7) << endl;
 	
 	cin>>stop;
 	return 0;

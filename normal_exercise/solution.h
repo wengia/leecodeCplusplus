@@ -1809,6 +1809,20 @@ public:
 		return c;
 	}
 
+	// Unique Path
+	int uniquePaths(int m, int n) {
+		if (m == 1 || n == 1) return 1;
+		int path = m - 1 + n - 1;
+		int choice = m > n ? (m - 1) : (n - 1);
+
+		long long res = 1;
+		for (int i = path; i > choice; i--)
+			res *= i;
+		for (int i = path - choice; i > 0; i--)
+			res /= i;
+		return res;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
