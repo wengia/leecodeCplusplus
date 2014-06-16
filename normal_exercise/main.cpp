@@ -712,7 +712,7 @@ int main()
 			cout << res[i][j] << '\t';
 		cout << endl;
 	}*/
-	cout << solution.isNumber("  99e2e1") << endl;
+	cout << solution.isPalindrome("A man, a plan, a canal : Panama") << endl;
 	
 	cin>>stop;
 	return 0;

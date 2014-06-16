@@ -1874,6 +1874,25 @@ public:
 		return true;
 	}
 
+	// Valid Palindrome
+	bool isPalindrome(string s) {
+		if (s.empty()) return true;
+		string s_cp;
+
+		for (int i = 0; i < s.size(); i++)
+			if (s[i] >= 'a' && s[i] <= 'z')
+				s_cp.push_back(s[i]);
+			else if (s[i] >= 'A' && s[i] <= 'Z')
+				s_cp.push_back(s[i] - 'A' + 'a');
+
+		int i = 0, j = s_cp.size() - 1;
+		while (i < j) {
+			if (s_cp[i++] != s_cp[j--]) return false;
+		}
+
+		return true;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
