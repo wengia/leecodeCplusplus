@@ -712,7 +712,7 @@ int main()
 			cout << res[i][j] << '\t';
 		cout << endl;
 	}*/
-	cout << solution.uniquePaths(3, 7) << endl;
+	cout << solution.isNumber("  99e2e1") << endl;
 	
 	cin>>stop;
 	return 0;

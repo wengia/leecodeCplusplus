@@ -1845,6 +1845,35 @@ public:
 		return dp[m][n];
 	}
 
+	// Valid Number
+	bool isNumber(const char *s) {
+		if (*s == '\0') return false;
+		bool special = false;
+		while (*s != '\0' && *s == ' ') s++;
+
+		// start should not be 0 except for 0 and 0.xxxxxx
+		if (*s == '\0' ||
+			*s == 'e' || 
+			*s == '.' && *(s + 1) == '\0' || 
+			*s == '0' && *(s + 1) != '\0' && *(s + 1) != '.')
+			return false;
+		while (*s != '\0') {
+			if (*s == '.' || *s == 'e') {
+				if (special) return false;
+				special = true;
+			}
+			else if (*s<'0' || *s>'9')
+				break;
+			s++;
+		}
+		while(*s!='\0') {
+			if (*s != ' ') return false;
+			s++;
+		}
+
+		return true;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
