@@ -1909,6 +1909,24 @@ public:
 		return isValidBST(pre, cur->right);
 	}
 
+	// Word Break
+	bool wordBreak(string s, unordered_set<string> &dict) {
+		int n = s.size();
+		bool *canBreak = new bool[n + 1];
+		memset(canBreak, false, n + 1);
+
+		canBreak[0] = true;
+		for (int i = 1; i <= n; i++) {
+			for (int j = i - 1; j >= 0; j--)
+				if (canBreak[j] && dict.find(s.substr(j, i - j)) != dict.end()) {
+					canBreak[i] = true;
+					break;
+				}
+		}
+
+		return canBreak[n];
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
