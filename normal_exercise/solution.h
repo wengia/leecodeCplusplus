@@ -1893,6 +1893,22 @@ public:
 		return true;
 	}
 
+	// Validate Binary Search Tree
+	bool isValidBST(TreeNode *root) {
+		TreeNode *pre = NULL;
+		
+		return isValidBST(pre, root);
+	}
+
+	bool isValidBST(TreeNode *&pre, TreeNode *cur) {
+		if (!cur) return true;
+		if(!isValidBST(pre, cur->left)) return false;
+		if (pre && pre->val >= cur->val)
+			return false;
+		pre = cur;
+		return isValidBST(pre, cur->right);
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
