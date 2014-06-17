@@ -704,17 +704,17 @@ int main()
 	grid.push_back(vector<int>(g5, g5 + sizeof(g5) / sizeof(int)));
 	*/
 
-	string s = "aaaaaaa";
-	string theSet[] = { "aaaa", "aa" };
+	string s = "catsanddog";
+	string theSet[] = { "cat", "cats", "and", "sand", "dog" };
 	unordered_set<string> dict(theSet, theSet + sizeof(theSet)/sizeof(string));
-	//vector<string> res = solution.fullJustify(s, 30);
-	/*for (int i = 0; i < res.size(); i++) {
-		for (int j = 0; j < res[i].size(); j++)
-			cout << res[i][j] << '\t';
+	vector<string> res = solution.wordBreak_2(s, dict);
+	for (int i = 0; i < res.size(); i++) {
+		// for (int j = 0; j < res[i].size(); j++)
+			cout << res[i] << '|';
 		cout << endl;
-	}*/
-	cout << solution.wordBreak(s, dict) << endl;
+	}
 	
+
 	cin>>stop;
 	return 0;
 }

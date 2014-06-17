@@ -1927,6 +1927,30 @@ public:
 		return canBreak[n];
 	}
 
+	// Word Break II
+	vector<string> wordBreak_2(string s, unordered_set<string> &dict) {
+		string current;
+		vector<string> res;
+		if (!wordBreak(s, dict)) return res;
+		wordBreak_2(s, dict, 0, current, res);
+		return res;
+	}
+
+	void wordBreak_2(const string &s, unordered_set<string> &dict, int start, string cur, vector<string> &res) {
+		if (start == s.size()) {
+			cur.pop_back();
+			res.push_back(cur);
+			return;
+		}
+
+		for (int i = start + 1; i <= s.size(); i++) {
+			string tmp = s.substr(start, i - start);
+			if (dict.find(tmp) != dict.end()) {
+				wordBreak_2(s, dict, i, cur + tmp + ' ', res);
+			}
+		}
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
