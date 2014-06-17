@@ -1951,6 +1951,30 @@ public:
 		}
 	}
 
+	// Word Ladder
+	int ladderLength(string start, string end, unordered_set<string> &dict) {
+		queue<pair<int, string>> que;
+
+		que.push(pair<int, string>(1, start));
+		while (!que.empty()) {
+			auto current = que.front(); que.pop();
+			string word = current.second;
+			for (size_t i = 0; i < word.size(); i++) {
+				word = current.second;
+				for (char j = 'a'; j <= 'z'; j++) {
+					word[i] = j;
+					if (word == end) return current.first + 1;
+					if (dict.find(word) != dict.end()) {
+						que.push(pair<int, string>(current.first + 1, word));
+						dict.erase(word);
+					}
+				}
+			}
+		}
+
+		return 0;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
