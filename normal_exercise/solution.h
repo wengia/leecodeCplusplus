@@ -2008,6 +2008,41 @@ public:
 		return res;
 	}
 
+	// Word Search
+	bool exist(vector<vector<char> > &board, string word) {
+		if (board.empty() || board[0].empty() || word.empty()) return false;
+		int m = board.size(), n = board[0].size();
+		bool **avail = new bool*[m];
+
+		for (int i = 0; i < m; i++) {
+			avail[i] = new bool[n];
+			for (int j = 0; j < n; j++)
+				avail[i][j] = true;
+		}
+
+		for (int i = 0; i < m; i++)
+			for (int j = 0; j < n; j++)
+				if (board[i][j] == word[0] && isSubsequence(board, word, 0, i, j, avail))
+					return true;
+
+		return false;
+	}
+
+	bool isSubsequence(const vector<vector<char> > &board, const string &word, int word_pos, int r, int c, bool **avail) {
+		if (!avail[r][c] || word[word_pos] != board[r][c]) return false;
+		if (word_pos == word.size() - 1) return true;
+		int m = board.size(), n = board[0].size();
+
+		avail[r][c] = false;
+		if (r>0 && isSubsequence(board, word, word_pos + 1, r - 1, c, avail)) return true;
+		if (r<m - 1 && isSubsequence(board, word, word_pos + 1, r + 1, c, avail)) return true;
+		if (c>0 && isSubsequence(board, word, word_pos + 1, r, c - 1, avail)) return true;
+		if (c<n - 1 && isSubsequence(board, word, word_pos + 1, r, c + 1, avail)) return true;
+		avail[r][c] = true;
+
+		return false;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
