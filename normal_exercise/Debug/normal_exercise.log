@@ -1,4 +1,4 @@
-﻿Build started 6/17/2014 1:52:42 PM.
+﻿Build started 6/17/2014 2:14:50 PM.
      1>Project "D:\programEx\normal_exercise\normal_exercise\normal_exercise.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
@@ -57,6 +57,8 @@
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(577): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(672): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(680): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(711): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(712): warning C4018: '<' : signed/unsigned mismatch
      1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(2715): warning C4996: 'std::_Fill_n': Function call with parameters that may be unsafe - this call relies on the caller to check that the passed values are correct. To disable this warning, use -D_SCL_SECURE_NO_WARNINGS. See documentation on how to use Visual C++ 'Checked Iterators'
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(2701) : see declaration of 'std::_Fill_n'
                  d:\programex\normal_exercise\normal_exercise\solution.h(1762) : see reference to function template instantiation '_OutIt std::fill_n<int*,int,int>(_OutIt,_Diff,const _Ty &)' being compiled
@@ -74,4 +76,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.86
+Time Elapsed 00:00:01.93

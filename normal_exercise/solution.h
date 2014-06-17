@@ -1975,6 +1975,39 @@ public:
 		return 0;
 	}
 
+	// Word Ladder II
+	vector<vector<string>> findLadders(string start, string end, unordered_set<string> &dict) {
+		vector<vector<string>> res;
+		int length = INT_MAX;
+		queue<pair<int, vector<string>>> que;
+
+		que.push(pair<int, vector<string>>(1, vector<string>(1, start)));
+		while (!que.empty()) {
+			auto current = que.front(); que.pop();
+			size_t size = current.second.size();
+			string word = current.second[size-1];
+			for (size_t i = 0; i < word.size(); i++) {
+				word = current.second[size - 1];
+				for (char j = 'a'; j <= 'z'; j++) {
+					word[i] = j;
+					vector<string> tmp(current.second);
+					tmp.push_back(word);
+					if (word == end) {
+						if (current.first + 1>length) return res;
+						length = current.first + 1;
+						res.push_back(tmp);
+					}
+					if (dict.find(word) != dict.end()) {
+						que.push(pair<int, vector<string>>(current.first + 1, tmp));
+						dict.erase(word);
+					}
+				}
+			}
+		}
+
+		return res;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
