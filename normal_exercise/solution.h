@@ -2043,6 +2043,29 @@ public:
 		return false;
 	}
 
+	// Zigzag
+	string convert(string s, int nRows) {
+		if (nRows == 1) return s;
+		string res;
+		int ins = (nRows - 1) * 2, n = s.size(), i;
+
+		for (int row = 0; row < nRows; row++) {
+			i = 0;
+			while (true) {
+				if (row != 0 && row != nRows - 1) {
+					int tmp = i * ins - row;
+					if (tmp>0 && tmp < n) res.push_back(s[tmp]);
+				}
+				if (row + i*ins < n)
+					res.push_back(s[row + (i++)*ins]);
+				else
+					break;
+			}
+		}
+
+		return res;
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {

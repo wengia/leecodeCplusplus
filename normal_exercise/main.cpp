@@ -102,32 +102,6 @@ string longestPalindrome(string s) {
 	return s.substr(pos, res);
 }
 
-string convert(string s, int nRows) {
-    int r, c, col, ins;
-    ins = nRows*1.5;
-    col = s.length()*2/ins+1;
-    char **zigzag;
-    string res;
-
-	zigzag = new char* [nRows];
-	for ( r=0; r<nRows; r++ ) zigzag[r] = new char [col];
-
-    for ( c=0; c<col; c++ ) {
-        for ( r=0; r<nRows; r++ ) {
-            if ( c%2==0 && r+c/2*ins<s.length() ) zigzag[r][c] = s[r+c/2*ins];
-			else if ( c%2==1 && r%2==1 && nRows+r/2+c/2*ins<s.length() ) zigzag[r][c]=s[nRows+r/2+c/2*ins];
-			else zigzag[r][c] = ' ';
-        }
-    }
-
-    for ( r=0; r<nRows; r++ ) {
-        for ( c=0; c<col; c++ )
-            if ( zigzag[r][c]!=' ' ) res.push_back(zigzag[r][c]);
-    }
-        
-    return res;
-}
-
 int atoi(const char *str) {
     long long value=0;
     int i=-1, symble=0;
@@ -704,16 +678,16 @@ int main()
 	grid.push_back(vector<int>(g5, g5 + sizeof(g5) / sizeof(int)));
 	*/
 
-	string start = "hit", end = "cog";
-	string theSet[] = { "hot", "dot", "dog", "lot", "log" };
+	string start = "abc";
+	/*string theSet[] = { "hot", "dot", "dog", "lot", "log" };
 	unordered_set<string> dict(theSet, theSet + sizeof(theSet)/sizeof(string));
 	vector<vector<string>> res = solution.findLadders(start, end, dict);
 	for (int i = 0; i < res.size(); i++) {
 		for (int j = 0; j < res[i].size(); j++)
 			cout << res[i][j] << ' ';
 		cout << endl;
-	}
-	//cout << solution.ladderLength(start, end, dict) << endl;
+	}*/
+	cout << solution.convert(start, 2) << endl;
 	
 
 	cin>>stop;

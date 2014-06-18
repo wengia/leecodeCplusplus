@@ -1,4 +1,4 @@
-﻿Build started 6/17/2014 2:14:50 PM.
+﻿Build started 6/17/2014 5:27:45 PM.
      1>Project "D:\programEx\normal_exercise\normal_exercise\normal_exercise.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
@@ -33,32 +33,27 @@
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(83): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(87): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(95): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(107): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(117): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(118): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(131): warning C4273: 'atoi' : inconsistent dll linkage
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(105): warning C4273: 'atoi' : inconsistent dll linkage
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdlib.h(430) : see previous definition of 'atoi'
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(155): warning C4244: 'return' : conversion from '__int64' to 'int', possible loss of data
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(161): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(197): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(129): warning C4244: 'return' : conversion from '__int64' to 'int', possible loss of data
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(135): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(171): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(177): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(178): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(190): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(192): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(201): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(203): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(204): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(216): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(218): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(227): warning C4018: '<' : signed/unsigned mismatch
      1>d:\programex\normal_exercise\normal_exercise\main.cpp(229): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(255): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(403): warning C4018: '<=' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(406): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(424): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(509): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(531): warning C4101: 'tmp' : unreferenced local variable
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(563): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(577): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(672): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(680): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(711): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\programex\normal_exercise\normal_exercise\main.cpp(712): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(377): warning C4018: '<=' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(380): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(398): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(483): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(505): warning C4101: 'tmp' : unreferenced local variable
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(537): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(551): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(646): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\programex\normal_exercise\normal_exercise\main.cpp(654): warning C4018: '<' : signed/unsigned mismatch
      1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(2715): warning C4996: 'std::_Fill_n': Function call with parameters that may be unsafe - this call relies on the caller to check that the passed values are correct. To disable this warning, use -D_SCL_SECURE_NO_WARNINGS. See documentation on how to use Visual C++ 'Checked Iterators'
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(2701) : see declaration of 'std::_Fill_n'
                  d:\programex\normal_exercise\normal_exercise\solution.h(1762) : see reference to function template instantiation '_OutIt std::fill_n<int*,int,int>(_OutIt,_Diff,const _Ty &)' being compiled
@@ -70,10 +65,9 @@
                  ]
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\programEx\normal_exercise\Debug\normal_exercise.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\programEx\normal_exercise\Debug\normal_exercise.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\programEx\normal_exercise\Debug\normal_exercise.lib" /MACHINE:X86 Debug\main.obj
-            Creating library D:\programEx\normal_exercise\Debug\normal_exercise.lib and object D:\programEx\normal_exercise\Debug\normal_exercise.exp
          normal_exercise.vcxproj -> D:\programEx\normal_exercise\Debug\normal_exercise.exe
      1>Done Building Project "D:\programEx\normal_exercise\normal_exercise\normal_exercise.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.93
+Time Elapsed 00:00:01.77
