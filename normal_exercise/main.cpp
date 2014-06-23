@@ -678,7 +678,7 @@ int main()
 	grid.push_back(vector<int>(g5, g5 + sizeof(g5) / sizeof(int)));
 	*/
 
-	string start = "abc";
+	char *start = "aa", *p = "*";
 	/*string theSet[] = { "hot", "dot", "dog", "lot", "log" };
 	unordered_set<string> dict(theSet, theSet + sizeof(theSet)/sizeof(string));
 	vector<vector<string>> res = solution.findLadders(start, end, dict);
@@ -687,7 +687,7 @@ int main()
 			cout << res[i][j] << ' ';
 		cout << endl;
 	}*/
-	cout << solution.convert(start, 2) << endl;
+	cout << isMatch(start, p) << endl;
 	
 
 	cin>>stop;

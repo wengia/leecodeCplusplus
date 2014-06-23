@@ -2066,6 +2066,31 @@ public:
 		return res;
 	}
 
+	// Wildcard Matching
+	bool isMatch(const char *s, const char *p) {
+		const char *sbackup = NULL, *pbackup;
+		while (*s != '\0') {
+			if (*s == *p || *p == '?') {
+				s++;
+				p++;
+			} 
+			else if (*p == '*') {
+				while (*p == '*') p++;
+				if (*p == '\0') return true;
+				sbackup = s;
+				pbackup = p;
+			}
+			else {
+				if (sbackup == NULL) return false;
+				s = ++sbackup;
+				p = pbackup;
+			}
+		}
+		while (*p == '*') p++;
+
+		return *p == '\0';
+	}
+
 private:
 	// Return the height of one branch
 	int treeHeight(TreeNode *tree) {
