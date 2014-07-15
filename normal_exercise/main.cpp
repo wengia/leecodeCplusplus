@@ -678,17 +678,19 @@ int main()
 	grid.push_back(vector<int>(g5, g5 + sizeof(g5) / sizeof(int)));
 	*/
 
-	char *start = "aa", *p = "*";
 	/*string theSet[] = { "hot", "dot", "dog", "lot", "log" };
-	unordered_set<string> dict(theSet, theSet + sizeof(theSet)/sizeof(string));
-	vector<vector<string>> res = solution.findLadders(start, end, dict);
+	unordered_set<string> dict(theSet, theSet + sizeof(theSet)/sizeof(string));*/
+
+	int a[] = { 1, 2 };
+	int b[] = { 3, 4 };
+	/*vector<int> src(a, a + sizeof(a) / sizeof(int));
+	vector<vector<int>> res = solution.permute(src);
 	for (int i = 0; i < res.size(); i++) {
 		for (int j = 0; j < res[i].size(); j++)
 			cout << res[i][j] << ' ';
 		cout << endl;
 	}*/
-	cout << isMatch(start, p) << endl;
-	
+	cout << solution.findMedianSortedArrays(a, 2, b, 2) << endl;
 
 	cin>>stop;
 	return 0;

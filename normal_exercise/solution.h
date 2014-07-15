@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <queue>
 #include <regex>
+#include <assert.h>
 
 using namespace std;
 
@@ -1184,6 +1185,35 @@ public:
 		}
 	}
 
+	// Permute
+	vector<vector<int> > permute(vector<int> &num) {
+		int n = num.size();
+		vector<vector<int>> res;
+		vector<int> current;
+		vector<bool> avail(n, true);
+
+		permute(num, avail, current, res);
+
+		return res;
+	}
+
+	void permute(const vector<int> &num, vector<bool> &avail, vector<int> &cur, vector<vector<int>> &res) {
+		int n = num.size();
+		if (cur.size() == n) {
+			res.push_back(cur);
+			return;
+		}
+
+		for (int i = 0; i < n; i++) {
+			if (!avail[i]) continue;
+			cur.push_back(num[i]);
+			avail[i] = false;
+			permute(num, avail, cur, res);
+			avail[i] = true;
+			cur.pop_back();
+		}
+	}
+
 	// Populating Next Right Pointers in Each Node
 	struct TreeLinkNode {
 		int val;
@@ -2089,6 +2119,75 @@ public:
 		while (*p == '*') p++;
 
 		return *p == '\0';
+	}
+
+	// Integer to Roman
+	string intToRoman(int num) {
+		string res = "";
+		
+		if (num >= 1000) {
+			int tmp = num / 1000;
+			num -= tmp * 1000;
+			while (tmp--) res.push_back('M');
+		}
+		if (num >= 100) res.append(intToOneLevelRoman(num, 100));
+		if (num >= 10)  res.append(intToOneLevelRoman(num, 10));
+		if (num >= 1)  res.append(intToOneLevelRoman(num, 1));
+
+		return res;
+	}
+
+	string intToOneLevelRoman(int &num, int level) {
+		string res = "", one, five, ten;
+		if (level == 1) {
+			one = "I"; five = "V"; ten = "X";
+		}
+		else if (level == 10) {
+			one = "X"; five = "L"; ten = "C";
+		}
+		else if (level == 100) {
+			one = "C"; five = "D"; ten = "M";
+		}
+
+		int tmp = num / level;
+		num -= level * tmp;
+		if (tmp == 9)
+			res.append(one + ten);
+		else if (tmp >= 5) {
+			tmp -= 5;
+			res.append(five);
+			while (tmp--) res.append(one);
+		}
+		else if (tmp == 4)
+			res.append(one + five);
+		else
+			while (tmp--) res.append(one);
+
+		return res;
+	}
+
+	// Median of two sorted arrays
+	double findMedianSortedArrays(int A[], int m, int B[], int n) {
+		int total = m + n;
+		if (total % 2 == 1)
+			return findMedianSortedArrays(A, m, B, n, total / 2 + 1);
+		else
+			return (findMedianSortedArrays(A, m, B, n, total / 2) + findMedianSortedArrays(A, m, B, n, total / 2 + 1)) / 2;
+	}
+
+	double findMedianSortedArrays(int A[], int m, int B[], int n, int k) {
+		if (m <= 0) return B[k - 1];
+		if (n <= 0) return A[k - 1];
+		if (k <= 1) return min(A[0], B[0]);
+
+		if (m / 2 + n / 2 + 1 >= k) {
+			if (A[m / 2] <= B[n / 2]) return findMedianSortedArrays(A, m, B, n / 2, k);
+			else return findMedianSortedArrays(A, m / 2, B, n, k);
+		}
+		else {
+			if (A[m / 2] <= B[n / 2]) return findMedianSortedArrays(A + m / 2 + 1, m - (m / 2 + 1), B, n, k - (m / 2 + 1));
+			else return findMedianSortedArrays(A, m, B + n / 2 + 1, n - (n / 2 + 1), k - (n / 2 + 1));
+		}
 	}
 
 private:
